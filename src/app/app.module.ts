@@ -10,7 +10,6 @@ import { AppointmentComponent } from './appointment/appointment.component';
 import { OwnerComponent } from './owner/owner.component';
 import { PetComponent } from './pet/pet.component';
 import { PetTypeComponent } from './pet-type/pet-type.component';
-import { ConsultantComponent } from './consultant/consultant.component';
 import { VetComponent } from './vet/vet.component';
 
 @NgModule({
@@ -21,7 +20,6 @@ import { VetComponent } from './vet/vet.component';
     OwnerComponent,
     PetComponent,
     PetTypeComponent,
-    ConsultantComponent,
     VetComponent
   ],
   imports: [
