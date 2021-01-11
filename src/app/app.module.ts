@@ -29,12 +29,13 @@ import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {RouterModule, Routes} from '@angular/router';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import { PriceComponent } from './price/price.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {AppInterceptor} from './shared/interceptor/app.interceptor';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,12 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatCardModule,
     RouterModule
   ],
-  providers: [],
+  exports: [RouterModule],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AppInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

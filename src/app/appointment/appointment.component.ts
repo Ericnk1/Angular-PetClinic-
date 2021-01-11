@@ -34,7 +34,7 @@ export class AppointmentComponent implements OnInit {
       this.addAppointmentGroup.get('date').value, this.addAppointmentGroup.get('time').value,
       this.addAppointmentGroup.get('pet').value, null);
     console.log(addAppointment);
-    this.appointmentService.addAppointment(addAppointment).subscribe(value => window.location.assign('/home'));
+    this.appointmentService.addAppointment(addAppointment).subscribe(value => window.location.assign('/appointment'));
   }
 
   goBack(): void {
