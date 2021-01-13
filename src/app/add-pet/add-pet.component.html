@@ -1,0 +1,44 @@
+<mat-toolbar>
+  <span>Pet Registration Form</span>
+</mat-toolbar>
+<mat-card class="my-card">
+  <mat-card-content>
+    <form [formGroup]="addPetGroup"  class="my-form">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label> Name</mat-label>
+        <input formControlName="name" matInput>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Date Of Birth</mat-label>
+        <input formControlName="dateOfBirth" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Is Vaccinated (yes/no)</mat-label>
+        <input formControlName="isVaccinated" matInput>
+      </mat-form-field>
+      <br>
+      <br>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>PetType</mat-label>
+        <mat-select formControlName="petType">
+          <mat-option *ngFor="let petType of petTypes" [value]="petType">{{petType.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <br>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Owner's id</mat-label>
+        <input formControlName="owner" matInput>
+      </mat-form-field>
+      <br>
+      <mat-card-actions>
+        <button (click)="addPet()" color="primary" mat-raised-button>Add pet</button>
+        <button (click)="goBack()" color="warn" mat-raised-button>BACK</button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+</mat-card>

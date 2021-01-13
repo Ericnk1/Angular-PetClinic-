@@ -36,6 +36,12 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {AppInterceptor} from './shared/interceptor/app.interceptor';
+import { AddOwnerComponent } from './add-owner/add-owner.component';
+import { AddPetComponent } from './add-pet/add-pet.component';
+import { AddVetComponent } from './add-vet/add-vet.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { AddPetTypeComponent } from './add-pet-type/add-pet-type.component';
+import {AgmCoreModule} from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -51,10 +57,17 @@ import {AppInterceptor} from './shared/interceptor/app.interceptor';
     HomeComponent,
     PriceComponent,
     ContactComponent,
-    AboutComponent
+    AboutComponent,
+    AddOwnerComponent,
+    AddPetComponent,
+    AddVetComponent,
+    AddPetTypeComponent
   ],
   imports: [
     BrowserModule,
+    AgmCoreModule.forRoot({
+      apiKey: ''
+    }),
     BrowserAnimationsModule,
     MatToolbarModule,
     FlexLayoutModule,
@@ -77,6 +90,7 @@ import {AppInterceptor} from './shared/interceptor/app.interceptor';
     MatOptionModule,
     MatSelectModule,
     MatProgressSpinnerModule,
+    MatGridListModule,
     MatCardModule,
     RouterModule
   ],

@@ -7,7 +7,7 @@ import {PetType} from '../models/petType';
   providedIn: 'root'
 })
 export class PetTypeService {
-  private PET_TYPE_BASE_URL = 'pet';
+  private PET_TYPE_BASE_URL = 'petType';
 
   constructor(private httpClient: HttpClient) { }
 
