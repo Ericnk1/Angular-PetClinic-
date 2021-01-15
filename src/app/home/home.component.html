@@ -8,15 +8,32 @@
     <mat-card-header>
       <div mat-card-avatar></div>
       <mat-card-title>
-        <h3>Name</h3>
+        <h3>Welcome to our clinic, We protect and care about all animals regardless of the species</h3>
       </mat-card-title>
     </mat-card-header>
-    <img mat-card-image src="" alt=''>
+    <img alt='img.jpg' mat-card-image src="../../assets/image/cute_dog.jpg">
     <mat-card-content>
-      <p>Description</p>
+      <p>Animals are our best friends</p>
     </mat-card-content>
   </mat-card>
   <div fxFlex="40">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h2>Facts At a Glance</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <dl>
+          <dt>Started:</dt>
+          <dd>3 Dec. 2019</dd>
+          <dt>Last Year's Customers satisfaction:</dt>
+          <dd>5 stars</dd>
+          <dt>Patients</dt>
+          <dd>Over few thousands</dd>
+        </dl>
+      </mat-card-content>
+    </mat-card>
     <h4>Map of our Location</h4>
     <agm-map [latitude]="lat" [longitude]="lng">
       <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>

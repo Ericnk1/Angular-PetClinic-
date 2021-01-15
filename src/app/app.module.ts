@@ -41,8 +41,9 @@ import { AddPetComponent } from './add-pet/add-pet.component';
 import { AddVetComponent } from './add-vet/add-vet.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { AddPetTypeComponent } from './add-pet-type/add-pet-type.component';
-import {AgmCoreModule} from '@agm/core';
+import {AgmCoreModule, MapsAPILoader} from '@agm/core';
 
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +69,7 @@ import {AgmCoreModule} from '@agm/core';
     AgmCoreModule.forRoot({
       apiKey: ''
     }),
+    // MapsAPILoader,
     BrowserAnimationsModule,
     MatToolbarModule,
     FlexLayoutModule,

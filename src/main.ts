@@ -8,5 +8,7 @@ if (environment.production) {
   enableProdMode();
 }
 
+/// <reference types="googlemaps" />
+
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
