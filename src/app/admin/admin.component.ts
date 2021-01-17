@@ -24,7 +24,11 @@ export class AdminComponent implements OnInit {
   displayedColumnsOwner: string[] = ['id', 'firstName', 'lastName', 'address', 'telephoneNumber', 'email', 'button'];
   displayedColumnsPetType: string[] = ['id', 'name', 'button'];
   displayedColumnsAppointment: string[] = ['id', 'description', 'date', 'time', 'pet', 'button'];
-  dataSource = null;
+  dataSourceVet = null;
+  dataSourcePet = null;
+  dataSourceOwner = null;
+  dataSourcePetType = null;
+  dataSourceAppointment = null;
   pets: Pet[];
   vets: Vet[];
   owners: Owner[];
@@ -40,62 +44,62 @@ export class AdminComponent implements OnInit {
     this.vetService.getAllActiveVets().subscribe(value => {
       this.vets = value;
       console.log(value);
-      this.dataSource = new MatTableDataSource(this.vets);
-      this.dataSource.sort = this.sort;
+      this.dataSourceVet = new MatTableDataSource(this.vets);
+      this.dataSourceVet.sort = this.sort;
     });
     /*this.vetService.getAllVets().subscribe(value => {
       this.vets = value;
       console.log(value);
-      this.dataSource = new MatTableDataSource(this.vets);
-      this.dataSource.sort = this.sort;
+      this.dataSourceVet = new MatTableDataSource(this.vets);
+      this.dataSourceVet.sort = this.sort;
     });*/
     this.petService.getAllActivePets().subscribe(value => {
       this.pets = value;
       console.log(value);
-      this.dataSource = new MatTableDataSource(this.pets);
-      this.dataSource.sort = this.sort;
+      this.dataSourcePet = new MatTableDataSource(this.pets);
+      this.dataSourcePet.sort = this.sort;
     });
     /*this.petService.getAllPets().subscribe(value => {
       this.pets = value;
       console.log(value);
-      this.dataSource = new MatTableDataSource(this.pets);
-      this.dataSource.sort = this.sort;
+      this.dataSourcePet = new MatTableDataSource(this.pets);
+      this.dataSourcePet.sort = this.sort;
     });*/
     this.ownerService.getAllActiveOwners().subscribe(value => {
       this.owners = value;
       console.log(value);
-      this.dataSource = new MatTableDataSource(this.owners);
-      this.dataSource.sort = this.sort;
+      this.dataSourceOwner = new MatTableDataSource(this.owners);
+      this.dataSourceOwner.sort = this.sort;
     });
     /*this.ownerService.getAllOwners().subscribe(value => {
       this.owners = value;
       console.log(value);
-      this.dataSource = new MatTableDataSource(this.owners);
-      this.dataSource.sort = this.sort;
+      this.dataSourceOwner = new MatTableDataSource(this.owners);
+      this.dataSourceOwner.sort = this.sort;
     });*/
     this.petTypeService.getAllActivePetTypes().subscribe(value => {
       this.petTypes = value;
       console.log(value);
-      this.dataSource = new MatTableDataSource(this.petTypes);
-      this.dataSource.sort = this.sort;
+      this.dataSourcePetType = new MatTableDataSource(this.petTypes);
+      this.dataSourcePetType.sort = this.sort;
     });
     /*this.petTypeService.getAllPetTypes().subscribe(value => {
       this.petTypes = value;
       console.log(value);
-      this.dataSource = new MatTableDataSource(this.petTypes);
-      this.dataSource.sort = this.sort;
+      this.dataSourcePetType = new MatTableDataSource(this.petTypes);
+      this.dataSourcePetType.sort = this.sort;
     });*/
     this.appointmentService.getAllActiveAppointments().subscribe(value => {
       this.appointments = value;
       console.log(value);
-      this.dataSource = new MatTableDataSource(this.appointments);
-      this.dataSource.sort = this.sort;
+      this.dataSourceAppointment = new MatTableDataSource(this.appointments);
+      this.dataSourceAppointment.sort = this.sort;
     });
     /*this.appointmentService.getAllAppointments().subscribe(value => {
       this.appointments = value;
       console.log(value);
-      this.dataSource = new MatTableDataSource(this.appointments);
-      this.dataSource.sort = this.sort;
+      this.dataSourceAppointment = new MatTableDataSource(this.appointments);
+      this.dataSourceAppointment.sort = this.sort;
     });*/
   }
 

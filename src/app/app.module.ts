@@ -42,6 +42,7 @@ import { AddVetComponent } from './add-vet/add-vet.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { AddPetTypeComponent } from './add-pet-type/add-pet-type.component';
 import {AgmCoreModule, MapsAPILoader} from '@agm/core';
+import { ServicesComponent } from './services/services.component';
 
 // @ts-ignore
 @NgModule({
@@ -62,7 +63,8 @@ import {AgmCoreModule, MapsAPILoader} from '@agm/core';
     AddOwnerComponent,
     AddPetComponent,
     AddVetComponent,
-    AddPetTypeComponent
+    AddPetTypeComponent,
+    ServicesComponent
   ],
   imports: [
     BrowserModule,

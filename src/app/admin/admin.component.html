@@ -9,7 +9,7 @@
     <span>Vet List</span>
   </mat-toolbar>
 
-  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSourceVet" matSort class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
@@ -58,7 +58,7 @@
     <span>Pet List</span>
   </mat-toolbar>
 
-  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSourcePet" matSort class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
@@ -117,7 +117,7 @@
     <span>Owner List</span>
   </mat-toolbar>
 
-  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSourceOwner" matSort class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
@@ -173,7 +173,7 @@
     <span>Appointment List</span>
   </mat-toolbar>
 
-  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSourceAppointment" matSort class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
@@ -227,7 +227,7 @@
     <span>PetType List</span>
   </mat-toolbar>
 
-  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSourcePetType" matSort class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>

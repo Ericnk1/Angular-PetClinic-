@@ -9,10 +9,12 @@ import {AddVetComponent} from '../add-vet/add-vet.component';
 import {AddPetComponent} from '../add-pet/add-pet.component';
 import {AddOwnerComponent} from '../add-owner/add-owner.component';
 import {AddPetTypeComponent} from '../add-pet-type/add-pet-type.component';
+import {ServicesComponent} from '../services/services.component';
 
 export const routes: Routes = [
   { path: 'home',  component: HomeComponent },
   {path: 'appointment', component: AppointmentComponent},
+  {path: 'services', component: ServicesComponent},
   {path: 'price', component: PriceComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'about', component: AboutComponent},
