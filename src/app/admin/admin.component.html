@@ -6,10 +6,50 @@
   </div>
 
   <mat-toolbar>
-    <span>Vet List</span>
+    <span>List of active vets</span>
   </mat-toolbar>
 
-  <table mat-table [dataSource]="dataSourceVet" matSort class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSourceActiveVet" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
+      <td mat-cell *matCellDef="let vet"> {{vet.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstName">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>First Name </th>
+      <td mat-cell *matCellDef="let vet"> {{vet.firstName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>Last Name </th>
+      <td mat-cell *matCellDef="let vet"> {{vet.lastName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+      <td mat-cell *matCellDef="let vet"> {{vet.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="button">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+      <td mat-cell *matCellDef="let vet">
+        <mat-card-actions>
+          <button mat-raised-button routerLink="/update-vet" color="primary">Update</button>
+          <button mat-raised-button color="warn" (click)="deleteVet(vet.id)">Delete</button>
+        </mat-card-actions>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsActiveVet"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsActiveVet;"></tr>
+  </table>
+
+  <mat-toolbar>
+    <span>List of all vets</span>
+  </mat-toolbar>
+
+  <table mat-table [dataSource]="dataSourceVetAll" matSort class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
@@ -42,8 +82,8 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumnsVet"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumnsVet;"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsVetAll"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsVetAll;"></tr>
   </table>
 </div>
 
@@ -55,10 +95,60 @@
   </div>
 
   <mat-toolbar>
-    <span>Pet List</span>
+    <span>List of active pets</span>
   </mat-toolbar>
 
-  <table mat-table [dataSource]="dataSourcePet" matSort class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSourceActivePet" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
+      <td mat-cell *matCellDef="let pet"> {{pet.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let pet"> {{pet.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateOfBirth">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>Date of birth </th>
+      <td mat-cell *matCellDef="let pet"> {{pet.dateOfBirth}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="isVaccinated">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Vaccination </th>
+      <td mat-cell *matCellDef="let pet"> {{pet.isVaccinated}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="petType">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> PetType </th>
+      <td mat-cell *matCellDef="let pet"> {{pet.petType}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="owner">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Owner Id </th>
+      <td mat-cell *matCellDef="let pet"> {{pet.owner}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="button">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+      <td mat-cell *matCellDef="let pet">
+        <mat-card-actions>
+          <button mat-raised-button routerLink="/update-pet" color="primary">Update</button>
+          <button mat-raised-button color="warn" (click)="deletePet(pet.id)">Delete</button>
+        </mat-card-actions>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsActivePet"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsActivePet;"></tr>
+  </table>
+
+  <mat-toolbar>
+    <span>List of all pets</span>
+  </mat-toolbar>
+
+  <table mat-table [dataSource]="dataSourcePetAll" matSort class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
@@ -101,8 +191,8 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumnsPet"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumnsPet;"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsPetAll"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsPetAll;"></tr>
   </table>
 </div>
 
@@ -114,10 +204,60 @@
   </div>
 
   <mat-toolbar>
-    <span>Owner List</span>
+    <span>List of active owners</span>
   </mat-toolbar>
 
-  <table mat-table [dataSource]="dataSourceOwner" matSort class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSourceActiveOwner" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
+      <td mat-cell *matCellDef="let owner"> {{owner.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstName">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+      <td mat-cell *matCellDef="let owner"> {{owner.firstName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+      <td mat-cell *matCellDef="let owner"> {{owner.lastName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+      <td mat-cell *matCellDef="let owner"> {{owner.address}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="telephoneNumber">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> phone Number </th>
+      <td mat-cell *matCellDef="let owner"> {{owner.telephoneNumber}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+      <td mat-cell *matCellDef="let owner"> {{owner.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="button">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+      <td mat-cell *matCellDef="let owner">
+        <mat-card-actions>
+          <button mat-raised-button routerLink="/update-owner" color="primary">Update</button>
+          <button mat-raised-button color="warn" (click)="deleteOwner(owner.id)">Delete</button>
+        </mat-card-actions>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsActiveOwner"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsActiveOwner;"></tr>
+  </table>
+
+  <mat-toolbar>
+    <span>List of all owners</span>
+  </mat-toolbar>
+
+  <table mat-table [dataSource]="dataSourceOwnerAll" matSort class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
@@ -160,20 +300,68 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumnsOwner"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumnsOwner;"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsOwnerAll"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsOwnerAll;"></tr>
   </table>
 </div>
 
 <div class="container"
      fxLayout="column"
      fxLayoutGap="10px">
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <button><a mat-button routerLink="/appointment">Add Appointment</a></button>
+  </div>
 
   <mat-toolbar>
-    <span>Appointment List</span>
+    <span>List of active appointments</span>
   </mat-toolbar>
 
-  <table mat-table [dataSource]="dataSourceAppointment" matSort class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSourceActiveAppointment" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
+      <td mat-cell *matCellDef="let appointment"> {{appointment.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+      <td mat-cell *matCellDef="let appointment"> {{appointment.description}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+      <td mat-cell *matCellDef="let appointment"> {{appointment.date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="time">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Time </th>
+      <td mat-cell *matCellDef="let appointment"> {{appointment.time}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="pet">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Pet Id </th>
+      <td mat-cell *matCellDef="let appointment"> {{appointment.pet}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="button">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+      <td mat-cell *matCellDef="let appointment">
+        <mat-card-actions>
+          <button mat-raised-button routerLink="/update-appointment" color="primary">Update</button>
+          <button mat-raised-button color="warn" (click)="deleteAppointment(appointment.id)">Delete</button>
+        </mat-card-actions>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsActiveAppointment"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsActiveAppointment;"></tr>
+  </table>
+
+  <mat-toolbar>
+    <span>List of all appointments</span>
+  </mat-toolbar>
+
+  <table mat-table [dataSource]="dataSourceAppointmentAll" matSort class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
@@ -211,8 +399,8 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumnsAppointment"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumnsAppointment;"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsAppointmentAll"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsAppointmentAll;"></tr>
   </table>
 </div>
 
@@ -224,10 +412,40 @@
   </div>
 
   <mat-toolbar>
-    <span>PetType List</span>
+    <span>List of active petTypes</span>
   </mat-toolbar>
 
-  <table mat-table [dataSource]="dataSourcePetType" matSort class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSourceActivePetType" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
+      <td mat-cell *matCellDef="let petType"> {{petType.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let petType"> {{petType.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="button">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+      <td mat-cell *matCellDef="let petType">
+        <mat-card-actions>
+          <button mat-raised-button routerLink="/update-petType" color="primary">Update</button>
+          <button mat-raised-button color="warn" (click)="deletePetType(petType.id)">Delete</button>
+        </mat-card-actions>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsActivePetType"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsActivePetType;"></tr>
+  </table>
+
+  <mat-toolbar>
+    <span>List of all petTypes</span>
+  </mat-toolbar>
+
+  <table mat-table [dataSource]="dataSourcePetTypeAll" matSort class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
@@ -250,8 +468,8 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumnsPetType"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumnsPetType;"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsPetTypeAll"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsPetTypeAll;"></tr>
   </table>
 </div>
 

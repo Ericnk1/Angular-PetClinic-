@@ -15,6 +15,10 @@ export class PetService {
     return this.httpClient.get<Pet[]>(this.PET_BASE_URL);
   }
 
+  public getPetById(): Observable<Pet> {
+    return this.httpClient.get<Pet>(this.PET_BASE_URL + '/id');
+  }
+
   public getAllActivePets(): Observable<Pet[]> {
     return this.httpClient.get<Pet[]>(this.PET_BASE_URL + '/active');
   }

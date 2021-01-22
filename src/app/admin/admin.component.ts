@@ -19,16 +19,28 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class AdminComponent implements OnInit {
 
-  displayedColumnsVet: string[] = ['id', 'firstName', 'lastName', 'email', 'button'];
-  displayedColumnsPet: string[] = ['id', 'name', 'dateOfBirth', 'isVaccinated', 'petType', 'owner', 'button'];
-  displayedColumnsOwner: string[] = ['id', 'firstName', 'lastName', 'address', 'telephoneNumber', 'email', 'button'];
-  displayedColumnsPetType: string[] = ['id', 'name', 'button'];
-  displayedColumnsAppointment: string[] = ['id', 'description', 'date', 'time', 'pet', 'button'];
-  dataSourceVet = null;
-  dataSourcePet = null;
-  dataSourceOwner = null;
-  dataSourcePetType = null;
-  dataSourceAppointment = null;
+  displayedColumnsActiveVet: string[] = ['id', 'firstName', 'lastName', 'email', 'button'];
+  displayedColumnsActivePet: string[] = ['id', 'name', 'dateOfBirth', 'isVaccinated', 'petType', 'owner', 'button'];
+  displayedColumnsActiveOwner: string[] = ['id', 'firstName', 'lastName', 'address', 'telephoneNumber', 'email', 'button'];
+  displayedColumnsActivePetType: string[] = ['id', 'name', 'button'];
+  displayedColumnsActiveAppointment: string[] = ['id', 'description', 'date', 'time', 'pet', 'button'];
+  dataSourceActiveVet = null;
+  dataSourceActivePet = null;
+  dataSourceActiveOwner = null;
+  dataSourceActivePetType = null;
+  dataSourceActiveAppointment = null;
+
+  displayedColumnsVetAll: string[] = ['id', 'firstName', 'lastName', 'email', 'button'];
+  displayedColumnsPetAll: string[] = ['id', 'name', 'dateOfBirth', 'isVaccinated', 'petType', 'owner', 'button'];
+  displayedColumnsOwnerAll: string[] = ['id', 'firstName', 'lastName', 'address', 'telephoneNumber', 'email', 'button'];
+  displayedColumnsPetTypeAll: string[] = ['id', 'name', 'button'];
+  displayedColumnsAppointmentAll: string[] = ['id', 'description', 'date', 'time', 'pet', 'button'];
+  dataSourceVetAll = null;
+  dataSourcePetAll = null;
+  dataSourceOwnerAll = null;
+  dataSourcePetTypeAll = null;
+  dataSourceAppointmentAll = null;
+
   pets: Pet[];
   vets: Vet[];
   owners: Owner[];
@@ -44,63 +56,63 @@ export class AdminComponent implements OnInit {
     this.vetService.getAllActiveVets().subscribe(value => {
       this.vets = value;
       console.log(value);
-      this.dataSourceVet = new MatTableDataSource(this.vets);
-      this.dataSourceVet.sort = this.sort;
+      this.dataSourceActiveVet = new MatTableDataSource(this.vets);
+      this.dataSourceActiveVet.sort = this.sort;
     });
-    /*this.vetService.getAllVets().subscribe(value => {
+    this.vetService.getAllVets().subscribe(value => {
       this.vets = value;
       console.log(value);
-      this.dataSourceVet = new MatTableDataSource(this.vets);
-      this.dataSourceVet.sort = this.sort;
-    });*/
+      this.dataSourceVetAll = new MatTableDataSource(this.vets);
+      this.dataSourceVetAll.sort = this.sort;
+    });
     this.petService.getAllActivePets().subscribe(value => {
       this.pets = value;
       console.log(value);
-      this.dataSourcePet = new MatTableDataSource(this.pets);
-      this.dataSourcePet.sort = this.sort;
+      this.dataSourceActivePet = new MatTableDataSource(this.pets);
+      this.dataSourceActivePet.sort = this.sort;
     });
-    /*this.petService.getAllPets().subscribe(value => {
+    this.petService.getAllPets().subscribe(value => {
       this.pets = value;
       console.log(value);
-      this.dataSourcePet = new MatTableDataSource(this.pets);
-      this.dataSourcePet.sort = this.sort;
-    });*/
+      this.dataSourcePetAll = new MatTableDataSource(this.pets);
+      this.dataSourcePetAll.sort = this.sort;
+    });
     this.ownerService.getAllActiveOwners().subscribe(value => {
       this.owners = value;
       console.log(value);
-      this.dataSourceOwner = new MatTableDataSource(this.owners);
-      this.dataSourceOwner.sort = this.sort;
+      this.dataSourceActiveOwner = new MatTableDataSource(this.owners);
+      this.dataSourceActiveOwner.sort = this.sort;
     });
-    /*this.ownerService.getAllOwners().subscribe(value => {
+    this.ownerService.getAllOwners().subscribe(value => {
       this.owners = value;
       console.log(value);
-      this.dataSourceOwner = new MatTableDataSource(this.owners);
-      this.dataSourceOwner.sort = this.sort;
-    });*/
+      this.dataSourceOwnerAll = new MatTableDataSource(this.owners);
+      this.dataSourceOwnerAll.sort = this.sort;
+    });
     this.petTypeService.getAllActivePetTypes().subscribe(value => {
       this.petTypes = value;
       console.log(value);
-      this.dataSourcePetType = new MatTableDataSource(this.petTypes);
-      this.dataSourcePetType.sort = this.sort;
+      this.dataSourceActivePetType = new MatTableDataSource(this.petTypes);
+      this.dataSourceActivePetType.sort = this.sort;
     });
-    /*this.petTypeService.getAllPetTypes().subscribe(value => {
+    this.petTypeService.getAllPetTypes().subscribe(value => {
       this.petTypes = value;
       console.log(value);
-      this.dataSourcePetType = new MatTableDataSource(this.petTypes);
-      this.dataSourcePetType.sort = this.sort;
-    });*/
+      this.dataSourcePetTypeAll = new MatTableDataSource(this.petTypes);
+      this.dataSourcePetTypeAll.sort = this.sort;
+    });
     this.appointmentService.getAllActiveAppointments().subscribe(value => {
       this.appointments = value;
       console.log(value);
-      this.dataSourceAppointment = new MatTableDataSource(this.appointments);
-      this.dataSourceAppointment.sort = this.sort;
+      this.dataSourceActiveAppointment = new MatTableDataSource(this.appointments);
+      this.dataSourceActiveAppointment.sort = this.sort;
     });
-    /*this.appointmentService.getAllAppointments().subscribe(value => {
+    this.appointmentService.getAllAppointments().subscribe(value => {
       this.appointments = value;
       console.log(value);
-      this.dataSourceAppointment = new MatTableDataSource(this.appointments);
-      this.dataSourceAppointment.sort = this.sort;
-    });*/
+      this.dataSourceAppointmentAll = new MatTableDataSource(this.appointments);
+      this.dataSourceAppointmentAll.sort = this.sort;
+    });
   }
 
   deleteVet(id: number): void {

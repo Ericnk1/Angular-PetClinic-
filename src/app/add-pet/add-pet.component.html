@@ -3,7 +3,7 @@
 </mat-toolbar>
 <mat-card class="my-card">
   <mat-card-content>
-    <form [formGroup]="addPetGroup"  class="my-form">
+    <form [formGroup]="addPetGroup" (ngSubmit)="addPet(addPetGroup.value)"  class="my-form">
       <mat-form-field appearance="fill" class="full-width">
         <mat-label> Name</mat-label>
         <input formControlName="name" matInput>
@@ -11,14 +11,16 @@
       <br>
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Date Of Birth</mat-label>
-        <input formControlName="dateOfBirth" matInput [matDatepicker]="picker">
+        <input formControlName="dateOfBirth" matInput [matDatepicker]="picker" >
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill" class="full-width">
-        <mat-label>Is Vaccinated (yes/no)</mat-label>
-        <input formControlName="isVaccinated" matInput>
+        <mat-label>Is Vaccinated</mat-label>
+        <mat-select formControlName="isVaccinated">
+          <mat-option *ngFor="let status of isVaccinated" [value]="status">{{status}}</mat-option>
+        </mat-select>
       </mat-form-field>
       <br>
       <br>
@@ -29,14 +31,44 @@
         </mat-select>
       </mat-form-field>
       <br>
+
+      <h3>Owner info</h3>
+      <table class="full-width" [formGroup]="addOwnerGroup" ><tr>
+        <td><mat-form-field appearance="fill" class="full-width">
+          <mat-label>First Name</mat-label>
+          <input formControlName="firstName" matInput>
+        </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Last Name</mat-label>
+            <input formControlName="lastName" matInput>
+          </mat-form-field>
+          <br>
+          <br>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>address</mat-label>
+            <input formControlName="address" matInput>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Phone</mat-label>
+            <input formControlName="telephoneNumber" matInput>
+          </mat-form-field>
+          <br>
+          <br>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput>
+          </mat-form-field></td>
+      </tr></table>
       <br>
-      <mat-form-field appearance="fill" class="full-width">
+      <!--<mat-form-field appearance="fill" class="full-width">
         <mat-label>Owner's id</mat-label>
         <input formControlName="owner" matInput>
       </mat-form-field>
-      <br>
+      <br>-->
       <mat-card-actions>
-        <button (click)="addPet()" color="primary" mat-raised-button>Add pet</button>
+        <button color="primary" mat-raised-button>Add pet</button>
         <button (click)="goBack()" color="warn" mat-raised-button>BACK</button>
       </mat-card-actions>
     </form>
