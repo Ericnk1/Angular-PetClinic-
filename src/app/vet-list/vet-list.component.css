@@ -1,0 +1,13 @@
+mat-grid-tile {
+  background: lightblue;
+}
+#vet1{
+  background-color: honeydew;
+}
+#vet2{
+  background-color: honeydew;
+}
+
+.container{
+  background-image: url("../../assets/image/dog_on_the_beach.jpg");
+}
