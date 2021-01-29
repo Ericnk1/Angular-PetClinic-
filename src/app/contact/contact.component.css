@@ -1,3 +1,6 @@
 agm-map {
   height: 300px;
 }
+.container{
+  background-image: url("../../assets/image/logo.jpg");
+}

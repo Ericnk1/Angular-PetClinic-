@@ -38,7 +38,7 @@ export class PriceComponent implements OnInit {
     {description: 'Female dog sterilization (10 to 20 kg)', price: 270},
     {description: 'Female dog sterilization (20 to 40 kg)', price: 290},
     {description: 'Female dog sterilization (over 40 kg)', price: 320},
-    {description: 'Cesarean section, up to 20kg<', price: 300},
+    {description: 'Cesarean section, up to 20kg', price: 300},
     {description: 'Cesarean section, 20-40kg', price: 350},
     {description: 'Cesarean section, 40kg+', price: 550},
   ];

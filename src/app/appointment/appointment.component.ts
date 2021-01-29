@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {AppointmentService} from '../shared/services/appointment.service';
 import {Location} from '@angular/common';
 import {Appointment} from '../shared/models/appointment';
+import {Pet} from '../shared/models/pet';
+import {PetService} from '../shared/services/pet.service';
 
 @Component({
   selector: 'app-appointment',
@@ -11,8 +13,15 @@ import {Appointment} from '../shared/models/appointment';
 })
 export class AppointmentComponent implements OnInit {
 
+  newPet: Pet;
+  appointment = Appointment;
+
   constructor(private appointmentService: AppointmentService, private location: Location,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder, private petService: PetService) {
+    this.newPet = {} as Pet;
+    // @ts-ignore
+    this.appointment = {} as Appointment;
+  }
 
               addAppointmentGroup: FormGroup;
   date = (d: Date | null): boolean => {
@@ -25,16 +34,18 @@ export class AppointmentComponent implements OnInit {
       description: '',
       date: '',
       time: '',
-      pet: ''
+      // pet: ''
     });
   }
 
-  addAppointment(): void {
-    const addAppointment = new Appointment(null, this.addAppointmentGroup.get('description').value,
-      this.addAppointmentGroup.get('date').value, this.addAppointmentGroup.get('time').value,
-      this.addAppointmentGroup.get('pet').value, null);
-    console.log(addAppointment);
-    this.appointmentService.addAppointment(addAppointment).subscribe(value => window.location.assign('/appointment'));
+  addAppointment(appointment: Appointment): void {
+    appointment.pet = this.newPet;
+    this.petService.getPetById().subscribe(response => {
+      this.newPet = response;
+    });
+    this.appointment = this.addAppointmentGroup.value;
+    console.log(appointment);
+    this.appointmentService.addAppointment(appointment).subscribe(value => window.location.assign('/home'));
   }
 
   goBack(): void {

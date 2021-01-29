@@ -1,0 +1,13 @@
+mat-grid-tile {
+  background: lightblue;
+}
+#owner1{
+  background-color: aliceblue;
+}
+#owner2{
+  background-color: aliceblue;
+}
+
+.container{
+  background-image: url("../../assets/image/dog_on_the_beach.jpg");
+}

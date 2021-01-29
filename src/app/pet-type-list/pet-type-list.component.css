@@ -1,0 +1,13 @@
+mat-grid-tile {
+  background: lightblue;
+}
+#petType1{
+  background-color: beige;
+}
+#petType2{
+  background-color: beige;
+}
+
+.container{
+  background-image: url("../../assets/image/dog_on_the_beach.jpg");
+}

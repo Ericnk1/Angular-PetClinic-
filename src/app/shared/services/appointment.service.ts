@@ -34,4 +34,8 @@ export class AppointmentService {
   public updateAppointment(appointment: Appointment): Observable<Appointment> {
     return this.httpClient.put<Appointment>(this.APPOINTMENT_BASE_URL, appointment);
   }
+
+  public findAppointmentByPetId(petId: number): Observable<any> {
+    return this.httpClient.get(this.APPOINTMENT_BASE_URL + '/' + petId);
+  }
 }

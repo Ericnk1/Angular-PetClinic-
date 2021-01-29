@@ -43,6 +43,15 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { AddPetTypeComponent } from './add-pet-type/add-pet-type.component';
 import {AgmCoreModule, MapsAPILoader} from '@agm/core';
 import { ServicesComponent } from './services/services.component';
+import { UpdatePetComponent } from './update-pet/update-pet.component';
+import { UpdateVetComponent } from './update-vet/update-vet.component';
+import { UpdateAppointmentComponent } from './update-appointment/update-appointment.component';
+import { UpdateOwnerComponent } from './update-owner/update-owner.component';
+import { PetListComponent } from './pet-list/pet-list.component';
+import { OwnerListComponent } from './owner-list/owner-list.component';
+import { VetListComponent } from './vet-list/vet-list.component';
+import { AppointmentListComponent } from './appointment-list/appointment-list.component';
+import { PetTypeListComponent } from './pet-type-list/pet-type-list.component';
 
 // @ts-ignore
 @NgModule({
@@ -64,7 +73,16 @@ import { ServicesComponent } from './services/services.component';
     AddPetComponent,
     AddVetComponent,
     AddPetTypeComponent,
-    ServicesComponent
+    ServicesComponent,
+    UpdatePetComponent,
+    UpdateVetComponent,
+    UpdateAppointmentComponent,
+    UpdateOwnerComponent,
+    PetListComponent,
+    OwnerListComponent,
+    VetListComponent,
+    AppointmentListComponent,
+    PetTypeListComponent
   ],
   imports: [
     BrowserModule,

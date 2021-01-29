@@ -10,6 +10,15 @@ import {AddPetComponent} from '../add-pet/add-pet.component';
 import {AddOwnerComponent} from '../add-owner/add-owner.component';
 import {AddPetTypeComponent} from '../add-pet-type/add-pet-type.component';
 import {ServicesComponent} from '../services/services.component';
+import {UpdateOwnerComponent} from '../update-owner/update-owner.component';
+import {UpdateAppointmentComponent} from '../update-appointment/update-appointment.component';
+import {UpdatePetComponent} from '../update-pet/update-pet.component';
+import {UpdateVetComponent} from '../update-vet/update-vet.component';
+import {VetListComponent} from '../vet-list/vet-list.component';
+import {PetListComponent} from '../pet-list/pet-list.component';
+import {AppointmentListComponent} from '../appointment-list/appointment-list.component';
+import {PetTypeListComponent} from '../pet-type-list/pet-type-list.component';
+import {OwnerListComponent} from '../owner-list/owner-list.component';
 
 export const routes: Routes = [
   { path: 'home',  component: HomeComponent },
@@ -23,5 +32,14 @@ export const routes: Routes = [
   {path: 'add-pet', component: AddPetComponent},
   {path: 'add-owner', component: AddOwnerComponent},
   {path: 'add-petType', component: AddPetTypeComponent},
+  {path: 'update-owner', component: UpdateOwnerComponent},
+  {path: 'update-appointment', component: UpdateAppointmentComponent},
+  {path: 'update-pet/:id', component: UpdatePetComponent},
+  {path: 'update-vet', component: UpdateVetComponent},
+  {path: 'vet-list', component: VetListComponent},
+  {path: 'pet-list', component: PetListComponent},
+  {path: 'appointment-list', component: AppointmentListComponent},
+  {path: 'petType-list', component: PetTypeListComponent},
+  {path: 'owner-list', component: OwnerListComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
