@@ -24,7 +24,7 @@ export class AddPetTypeComponent implements OnInit {
     const addPetType = new PetType(null, this.addPetTypeGroup.get('name').value,
        null);
     console.log(addPetType);
-    this.petTypeService.addPetType(addPetType).subscribe(value => window.location.assign('/admin'));
+    this.petTypeService.addPetType(addPetType).subscribe(value => window.location.assign('/petType-list'));
   }
 
   goBack(): void {

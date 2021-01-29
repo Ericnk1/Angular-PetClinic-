@@ -32,7 +32,7 @@ export class AddOwnerComponent implements OnInit {
       this.addOwnerGroup.get('lastName').value, this.addOwnerGroup.get('address').value,
       this.addOwnerGroup.get('telephoneNumber').value, this.addOwnerGroup.get('email').value, null);
     console.log(addOwner);
-    this.ownerService.addOwner(addOwner).subscribe(value => window.location.assign('/admin'));
+    this.ownerService.addOwner(addOwner).subscribe(value => window.location.assign('/owner-list'));
   }
 
   goBack(): void {

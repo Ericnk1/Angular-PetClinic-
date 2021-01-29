@@ -29,7 +29,7 @@ export class AddVetComponent implements OnInit {
     const addVet = new Vet(null, this.addVetGroup.get('firstName').value,
       this.addVetGroup.get('lastName').value, this.addVetGroup.get('email').value, null);
     console.log(addVet);
-    this.vetService.addVet(addVet).subscribe(value => window.location.assign('/admin'));
+    this.vetService.addVet(addVet).subscribe(value => window.location.assign('/vet-list'));
   }
 
   goBack(): void {

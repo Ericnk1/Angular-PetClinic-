@@ -31,7 +31,7 @@ export class PetTypeService {
     return this.httpClient.delete(this.PET_TYPE_BASE_URL + '/' + id);
   }
 
-  public updateCourse(petType: PetType): Observable<PetType> {
+  public updatePetType(petType: PetType): Observable<PetType> {
     return this.httpClient.put<PetType>(this.PET_TYPE_BASE_URL, petType);
   }
 }

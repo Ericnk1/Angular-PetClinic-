@@ -19,6 +19,7 @@ import {PetListComponent} from '../pet-list/pet-list.component';
 import {AppointmentListComponent} from '../appointment-list/appointment-list.component';
 import {PetTypeListComponent} from '../pet-type-list/pet-type-list.component';
 import {OwnerListComponent} from '../owner-list/owner-list.component';
+import {UpdatePetTypeComponent} from '../update-pet-type/update-pet-type.component';
 
 export const routes: Routes = [
   { path: 'home',  component: HomeComponent },
@@ -36,6 +37,7 @@ export const routes: Routes = [
   {path: 'update-appointment', component: UpdateAppointmentComponent},
   {path: 'update-pet/:id', component: UpdatePetComponent},
   {path: 'update-vet', component: UpdateVetComponent},
+  {path: 'update-petType', component: UpdatePetTypeComponent},
   {path: 'vet-list', component: VetListComponent},
   {path: 'pet-list', component: PetListComponent},
   {path: 'appointment-list', component: AppointmentListComponent},

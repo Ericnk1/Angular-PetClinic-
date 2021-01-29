@@ -52,6 +52,7 @@ import { OwnerListComponent } from './owner-list/owner-list.component';
 import { VetListComponent } from './vet-list/vet-list.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { PetTypeListComponent } from './pet-type-list/pet-type-list.component';
+import { UpdatePetTypeComponent } from './update-pet-type/update-pet-type.component';
 
 // @ts-ignore
 @NgModule({
@@ -82,7 +83,8 @@ import { PetTypeListComponent } from './pet-type-list/pet-type-list.component';
     OwnerListComponent,
     VetListComponent,
     AppointmentListComponent,
-    PetTypeListComponent
+    PetTypeListComponent,
+    UpdatePetTypeComponent
   ],
   imports: [
     BrowserModule,

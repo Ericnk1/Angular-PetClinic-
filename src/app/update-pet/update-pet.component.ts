@@ -41,12 +41,12 @@ export class UpdatePetComponent implements OnInit {
   updatePetGroup: FormGroup;
 
   ngOnInit(): void {
-    this.petService.getPetById().subscribe(value => {
+    /*this.petService.getPetById().subscribe(value => {
       this.pet = value;
       console.log(value);
       this.dataSourcePet = new MatTableDataSource(this.pet);
       this.dataSourcePet.sort = this.sort;
-    });
+    });*/
     this.isVaccinatedService.getIsVaccinated().subscribe(value => this.isVaccinated = value);
     this.petTypeService.getAllActivePetTypes().subscribe(value => this.petTypes = value);
     this.updateOwnerGroup = this.formBuilder.group({
@@ -73,7 +73,7 @@ export class UpdatePetComponent implements OnInit {
     // pet.dateOfBirth = this.pet.dateOfBirth;
     this.pet = this.updatePetGroup.value;
     console.log(pet);
-    this.petService.updatePet(pet).subscribe(value => window.location.assign('/admin'));
+    this.petService.updatePet(pet).subscribe(value => window.location.assign('/pet-list'));
   }
 
   goBack(): void {
