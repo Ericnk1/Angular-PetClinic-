@@ -1,0 +1,92 @@
+<div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <button><a mat-button routerLink="/add-vet">Add Vet</a></button>
+  </div>
+
+  <mat-toolbar>
+    <span>List of active vets</span>
+  </mat-toolbar>
+
+  <table id="vet1" mat-table [dataSource]="dataSourceActiveVet" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
+      <td mat-cell *matCellDef="let vet"> {{vet.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstName">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>First Name </th>
+      <td mat-cell *matCellDef="let vet"> {{vet.firstName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>Last Name </th>
+      <td mat-cell *matCellDef="let vet"> {{vet.lastName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+      <td mat-cell *matCellDef="let vet"> {{vet.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="button">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+      <td mat-cell *matCellDef="let vet">
+        <mat-card-actions>
+          <button mat-raised-button (click)="updateVet(vet)" color="primary">Update</button>
+          <button mat-raised-button color="warn" (click)="deleteVet(vet.id)">Delete</button>
+        </mat-card-actions>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsActiveVet"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsActiveVet;"></tr>
+  </table>
+
+  <mat-toolbar>
+    <span>List of all vets</span>
+  </mat-toolbar>
+
+  <table id="vet2" mat-table [dataSource]="dataSourceVetAll" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
+      <td mat-cell *matCellDef="let vet"> {{vet.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstName">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>First Name </th>
+      <td mat-cell *matCellDef="let vet"> {{vet.firstName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>Last Name </th>
+      <td mat-cell *matCellDef="let vet"> {{vet.lastName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+      <td mat-cell *matCellDef="let vet"> {{vet.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="button">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+      <td mat-cell *matCellDef="let vet">
+        <mat-card-actions>
+          <button mat-raised-button (click)="updateVet(vet)" color="primary">Update</button>
+          <button mat-raised-button color="warn" (click)="deleteVet(vet.id)">Delete</button>
+          <button mat-raised-button color="accent" (click)="fullyDeleteVet(vet.id)">Full Delete</button>
+          <button mat-raised-button (click)="restoreVet(vet.id)">Restore</button>
+        </mat-card-actions>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsVetAll"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsVetAll;"></tr>
+  </table>
+  <button (click)="goBack()" color="primary" mat-raised-button>BACK</button>
+</div>
+<hr>
+<br>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {PetType} from '../models/petType';
+import {Pet} from '../models/pet';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,15 @@ export class PetTypeService {
     return this.httpClient.delete(this.PET_TYPE_BASE_URL + '/' + id);
   }
 
-  public updatePetType(petType: PetType): Observable<PetType> {
-    return this.httpClient.put<PetType>(this.PET_TYPE_BASE_URL, petType);
+  public fullyDeletePetTypeById(id: number): Observable<any> {
+    return this.httpClient.get(this.PET_TYPE_BASE_URL + '/full-delete'  + '/' + id);
+  }
+
+  public updatePetType(id: number, petType: PetType): Observable<PetType> {
+    return this.httpClient.put<PetType>(this.PET_TYPE_BASE_URL + '/' + id, petType);
+  }
+
+  public getPetTypeById(id: number): Observable<PetType> {
+    return this.httpClient.get<PetType>(this.PET_TYPE_BASE_URL + '/res' + '/' + id);
   }
 }

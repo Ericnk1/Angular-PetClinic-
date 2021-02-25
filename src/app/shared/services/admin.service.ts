@@ -20,6 +20,10 @@ export class AdminService {
     return this.httpClient.get<Admin[]>(this.ADMIN_BASE_URL + '/active');
   }
 
+  public getAdminById(id: number): Observable<Admin> {
+    return this.httpClient.get<Admin>(this.ADMIN_BASE_URL + '/res' + '/' + id);
+  }
+
   public restoreAdmin(id: number): Observable<Admin> {
     return this.httpClient.get<Admin>(this.ADMIN_BASE_URL + '/restore' + '/' + id);
   }
@@ -32,7 +36,11 @@ export class AdminService {
     return this.httpClient.delete(this.ADMIN_BASE_URL + '/' + id);
   }
 
-  public updateAdmin(admin: Admin): Observable<Admin> {
-    return this.httpClient.put<Admin>(this.ADMIN_BASE_URL, admin);
+  public fullyDeleteAdminById(id: number): Observable<any> {
+    return this.httpClient.get(this.ADMIN_BASE_URL + '/full-delete'  + '/' + id);
+  }
+
+  public updateAdmin(id: number, admin: Admin): Observable<Admin> {
+    return this.httpClient.put<Admin>(this.ADMIN_BASE_URL + '/' + id, admin);
   }
 }

@@ -31,7 +31,15 @@ export class OwnerService {
     return this.httpClient.delete(this.OWNER_BASE_URL + '/' + id);
   }
 
-  public updateOwner(owner: Owner): Observable<Owner> {
-    return this.httpClient.put<Owner>(this.OWNER_BASE_URL, owner);
+  public fullyDeleteVetById(id: number): Observable<any> {
+    return this.httpClient.get(this.OWNER_BASE_URL + '/full-delete'  + '/' + id);
+  }
+
+  public updateOwner(id: number, owner: Owner): Observable<Owner> {
+    return this.httpClient.put<Owner>(this.OWNER_BASE_URL + '/' + id, owner);
+  }
+
+  public getOwnerById(id: number): Observable<Owner> {
+    return this.httpClient.get<Owner>(this.OWNER_BASE_URL + '/res' + '/' + id);
   }
 }

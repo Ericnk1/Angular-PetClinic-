@@ -5,21 +5,23 @@ import {AboutComponent} from '../about/about.component';
 import {AppointmentComponent} from '../appointment/appointment.component';
 import {PriceComponent} from '../price/price.component';
 import {AdminComponent} from '../admin/admin.component';
-import {AddVetComponent} from '../add-vet/add-vet.component';
-import {AddPetComponent} from '../add-pet/add-pet.component';
-import {AddOwnerComponent} from '../add-owner/add-owner.component';
-import {AddPetTypeComponent} from '../add-pet-type/add-pet-type.component';
+import {AddVetComponent} from '../vet/add-vet/add-vet.component';
+import {AddPetComponent} from '../pet/add-pet/add-pet.component';
+import {AddOwnerComponent} from '../owner/add-owner/add-owner.component';
+import {AddPetTypeComponent} from '../pet-type/add-pet-type/add-pet-type.component';
 import {ServicesComponent} from '../services/services.component';
-import {UpdateOwnerComponent} from '../update-owner/update-owner.component';
-import {UpdateAppointmentComponent} from '../update-appointment/update-appointment.component';
-import {UpdatePetComponent} from '../update-pet/update-pet.component';
-import {UpdateVetComponent} from '../update-vet/update-vet.component';
-import {VetListComponent} from '../vet-list/vet-list.component';
-import {PetListComponent} from '../pet-list/pet-list.component';
-import {AppointmentListComponent} from '../appointment-list/appointment-list.component';
-import {PetTypeListComponent} from '../pet-type-list/pet-type-list.component';
-import {OwnerListComponent} from '../owner-list/owner-list.component';
-import {UpdatePetTypeComponent} from '../update-pet-type/update-pet-type.component';
+import {UpdateOwnerComponent} from '../owner/update-owner/update-owner.component';
+import {UpdateAppointmentComponent} from '../appointment/update-appointment/update-appointment.component';
+import {UpdatePetComponent} from '../pet/update-pet/update-pet.component';
+import {UpdateVetComponent} from '../vet/update-vet/update-vet.component';
+import {VetListComponent} from '../vet/vet-list/vet-list.component';
+import {PetListComponent} from '../pet/pet-list/pet-list.component';
+import {AppointmentListComponent} from '../appointment/appointment-list/appointment-list.component';
+import {PetTypeListComponent} from '../pet-type/pet-type-list/pet-type-list.component';
+import {OwnerListComponent} from '../owner/owner-list/owner-list.component';
+import {UpdatePetTypeComponent} from '../pet-type/update-pet-type/update-pet-type.component';
+import {PetComponent} from '../pet/pet.component';
+import {OwnerComponent} from '../owner/owner.component';
 
 export const routes: Routes = [
   { path: 'home',  component: HomeComponent },
@@ -33,11 +35,13 @@ export const routes: Routes = [
   {path: 'add-pet', component: AddPetComponent},
   {path: 'add-owner', component: AddOwnerComponent},
   {path: 'add-petType', component: AddPetTypeComponent},
-  {path: 'update-owner', component: UpdateOwnerComponent},
-  {path: 'update-appointment', component: UpdateAppointmentComponent},
+  {path: 'update-owner/:id', component: UpdateOwnerComponent},
+  {path: 'update-appointment/:id', component: UpdateAppointmentComponent},
   {path: 'update-pet/:id', component: UpdatePetComponent},
-  {path: 'update-vet', component: UpdateVetComponent},
-  {path: 'update-petType', component: UpdatePetTypeComponent},
+  {path: 'update-vet/:id', component: UpdateVetComponent},
+  {path: 'update-petType/:id', component: UpdatePetTypeComponent},
+  {path: 'pet/:id', component: PetComponent},
+  {path: 'owner/:id', component: OwnerComponent},
   {path: 'vet-list', component: VetListComponent},
   {path: 'pet-list', component: PetListComponent},
   {path: 'appointment-list', component: AppointmentListComponent},

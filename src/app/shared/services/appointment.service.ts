@@ -31,11 +31,19 @@ export class AppointmentService {
     return this.httpClient.delete(this.APPOINTMENT_BASE_URL + '/' + id);
   }
 
-  public updateAppointment(appointment: Appointment): Observable<Appointment> {
-    return this.httpClient.put<Appointment>(this.APPOINTMENT_BASE_URL, appointment);
+  public updateAppointment(id: number, appointment: Appointment): Observable<Appointment> {
+    return this.httpClient.put<Appointment>(this.APPOINTMENT_BASE_URL + '/' + id, appointment);
   }
 
   public findAppointmentByPetId(petId: number): Observable<any> {
-    return this.httpClient.get(this.APPOINTMENT_BASE_URL + '/' + petId);
+    return this.httpClient.get(this.APPOINTMENT_BASE_URL + '/list' + '/' + petId);
+  }
+
+  public fullyDeleteAppointmentById(id: number): Observable<any> {
+    return this.httpClient.get(this.APPOINTMENT_BASE_URL + '/full-delete'  + '/' + id);
+  }
+
+  public getAppointmentById(id: number): Observable<Appointment> {
+    return this.httpClient.get<Appointment>(this.APPOINTMENT_BASE_URL + '/res' + '/' + id);
   }
 }

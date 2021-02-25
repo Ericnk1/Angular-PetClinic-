@@ -15,8 +15,8 @@ export class PetService {
     return this.httpClient.get<Pet[]>(this.PET_BASE_URL);
   }
 
-  public getPetById(): Observable<Pet> {
-    return this.httpClient.get<Pet>(this.PET_BASE_URL + '/id');
+  public getPetById(id: number): Observable<Pet> {
+    return this.httpClient.get<Pet>(this.PET_BASE_URL + '/res' + '/' + id);
   }
 
   public getAllActivePets(): Observable<Pet[]> {
@@ -35,7 +35,11 @@ export class PetService {
     return this.httpClient.delete(this.PET_BASE_URL + '/' + id);
   }
 
-  public updatePet(pet: Pet): Observable<Pet> {
-    return this.httpClient.put<Pet>(this.PET_BASE_URL, pet);
+  public fullyDeletePetById(id: number): Observable<any> {
+    return this.httpClient.get(this.PET_BASE_URL + '/full-delete'  + '/' + id);
+  }
+
+  public updatePet(id: number, pet: Pet): Observable<Pet> {
+    return this.httpClient.put<Pet>(this.PET_BASE_URL + '/' + id, pet);
   }
 }

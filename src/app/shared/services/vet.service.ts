@@ -31,7 +31,15 @@ export class VetService {
     return this.httpClient.delete(this.VET_BASE_URL + '/' + id);
   }
 
-  public updateVet(vet: Vet): Observable<Vet> {
-    return this.httpClient.put<Vet>(this.VET_BASE_URL, vet);
+  public fullyDeleteVetById(id: number): Observable<any> {
+    return this.httpClient.get(this.VET_BASE_URL + '/full-delete'  + '/' + id);
+  }
+
+  public updateVet(id: number, vet: Vet): Observable<Vet> {
+    return this.httpClient.put<Vet>(this.VET_BASE_URL + '/' + id, vet);
+  }
+
+  public getVetById(id: number): Observable<Vet> {
+    return this.httpClient.get<Vet>(this.VET_BASE_URL + '/res' + '/' + id);
   }
 }

@@ -40,7 +40,7 @@ export class AppointmentComponent implements OnInit {
 
   addAppointment(appointment: Appointment): void {
     appointment.pet = this.newPet;
-    this.petService.getPetById().subscribe(response => {
+    this.petService.getPetById(this.newPet.id).subscribe(response => {
       this.newPet = response;
     });
     this.appointment = this.addAppointmentGroup.value;

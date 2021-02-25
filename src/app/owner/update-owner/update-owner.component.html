@@ -1,0 +1,57 @@
+<mat-toolbar>
+  <span>Owner Update Form</span>
+</mat-toolbar>
+<mat-card class="my-card">
+  <mat-card-content>
+    <form [formGroup]="updateOwnerGroup" (ngSubmit)="unSubmit(updateOwnerGroup.value)"  class="my-form">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Id Number</mat-label>
+        <label>
+          <input formControlName="id" matInput required>
+        </label>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>First Name</mat-label>
+        <label>
+          <input formControlName="firstName" matInput required>
+        </label>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Last Name</mat-label>
+        <label>
+          <input formControlName="lastName" matInput required>
+        </label>
+      </mat-form-field>
+      <br>
+      <br>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>address</mat-label>
+        <label>
+          <input formControlName="address" matInput required>
+        </label>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Phone</mat-label>
+        <label>
+          <input formControlName="telephoneNumber" matInput required>
+        </label>
+      </mat-form-field>
+      <br>
+      <br>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Email</mat-label>
+        <label>
+          <input formControlName="email" matInput required>
+        </label>
+      </mat-form-field>
+      <br>
+      <mat-card-actions>
+        <button color="primary" [disabled]="updateOwnerGroup.invalid" mat-raised-button>Update Owner</button>
+        <button (click)="goBack()" color="warn" mat-raised-button>BACK</button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+</mat-card>
