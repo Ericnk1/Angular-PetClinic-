@@ -28,7 +28,7 @@ export class AdminListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.adminService.getActiveAdmin().subscribe(value => {
+    this.adminService.getAllActiveAdmins().subscribe(value => {
       this.admins = value;
       console.log(value);
       this.dataSourceActiveAdmin = new MatTableDataSource(this.admins);
