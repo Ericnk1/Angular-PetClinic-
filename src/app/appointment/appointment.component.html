@@ -11,14 +11,18 @@
       <br>
       <mat-form-field class="full-width" appearance="fill">
         <mat-label>Choose a date</mat-label>
-        <input formControlName="date" matInput [matDatepickerFilter]="date" [matDatepicker]="picker" required>
+        <label>
+          <input formControlName="date" matInput [matDatepickerFilter]="date" [matDatepicker]="picker" required>
+        </label>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Time</mat-label>
-        <input formControlName="time" matInput required>
+        <label>
+          <input type="time" formControlName="time" matInput required>
+        </label>
       </mat-form-field>
       <br>
       <!--<br>

@@ -1,13 +1,13 @@
 <mat-toolbar>
-  <span>Owner Update Form</span>
+  <span>Admin Update Form</span>
 </mat-toolbar>
 <mat-card class="my-card">
   <mat-card-content>
-    <form [formGroup]="updateOwnerGroup" (ngSubmit)="unSubmit(updateOwnerGroup.value)"  class="my-form">
+    <form [formGroup]="updateAdminGroup" (ngSubmit)="unSubmit(updateAdminGroup.value)"  class="my-form">
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Id Number</mat-label>
         <label>
-          <input formControlName="id" matInput required>
+          <input type="number" formControlName="id" matInput required>
         </label>
       </mat-form-field>
       <br>
@@ -25,22 +25,6 @@
         </label>
       </mat-form-field>
       <br>
-      <br>
-      <mat-form-field appearance="fill" class="full-width">
-        <mat-label>address</mat-label>
-        <label>
-          <input type="text" formControlName="address" matInput required>
-        </label>
-      </mat-form-field>
-      <br>
-      <mat-form-field appearance="fill" class="full-width">
-        <mat-label>Phone</mat-label>
-        <label>
-          <input type="tel" formControlName="telephoneNumber" matInput required>
-        </label>
-      </mat-form-field>
-      <br>
-      <br>
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Email</mat-label>
         <label>
@@ -49,7 +33,7 @@
       </mat-form-field>
       <br>
       <mat-card-actions>
-        <button color="primary" [disabled]="updateOwnerGroup.invalid" mat-raised-button>Update Owner</button>
+        <button color="primary" [disabled]="updateAdminGroup.invalid" mat-raised-button>Update Admin</button>
         <button (click)="goBack()" color="warn" mat-raised-button>BACK</button>
       </mat-card-actions>
     </form>

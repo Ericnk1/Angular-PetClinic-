@@ -53,6 +53,9 @@ import { VetListComponent } from './vet/vet-list/vet-list.component';
 import { AppointmentListComponent } from './appointment/appointment-list/appointment-list.component';
 import { PetTypeListComponent } from './pet-type/pet-type-list/pet-type-list.component';
 import { UpdatePetTypeComponent } from './pet-type/update-pet-type/update-pet-type.component';
+import { AdminListComponent } from './admin/admin-list/admin-list.component';
+import { UpdateAdminComponent } from './admin/update-admin/update-admin.component';
+import { AddAdminComponent } from './admin/add-admin/add-admin.component';
 
 // @ts-ignore
 @NgModule({
@@ -84,7 +87,10 @@ import { UpdatePetTypeComponent } from './pet-type/update-pet-type/update-pet-ty
     VetListComponent,
     AppointmentListComponent,
     PetTypeListComponent,
-    UpdatePetTypeComponent
+    UpdatePetTypeComponent,
+    AdminListComponent,
+    UpdateAdminComponent,
+    AddAdminComponent
   ],
   imports: [
     BrowserModule,

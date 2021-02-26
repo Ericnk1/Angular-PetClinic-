@@ -22,6 +22,9 @@ import {OwnerListComponent} from '../owner/owner-list/owner-list.component';
 import {UpdatePetTypeComponent} from '../pet-type/update-pet-type/update-pet-type.component';
 import {PetComponent} from '../pet/pet.component';
 import {OwnerComponent} from '../owner/owner.component';
+import {AddAdminComponent} from '../admin/add-admin/add-admin.component';
+import {UpdateAdminComponent} from '../admin/update-admin/update-admin.component';
+import {AdminListComponent} from '../admin/admin-list/admin-list.component';
 
 export const routes: Routes = [
   { path: 'home',  component: HomeComponent },
@@ -31,10 +34,12 @@ export const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'about', component: AboutComponent},
   {path: 'admin', component: AdminComponent},
+  {path: 'add-admin', component: AddAdminComponent},
   {path: 'add-vet', component: AddVetComponent},
   {path: 'add-pet', component: AddPetComponent},
   {path: 'add-owner', component: AddOwnerComponent},
   {path: 'add-petType', component: AddPetTypeComponent},
+  {path: 'update-admin/:id', component: UpdateAdminComponent},
   {path: 'update-owner/:id', component: UpdateOwnerComponent},
   {path: 'update-appointment/:id', component: UpdateAppointmentComponent},
   {path: 'update-pet/:id', component: UpdatePetComponent},
@@ -42,6 +47,7 @@ export const routes: Routes = [
   {path: 'update-petType/:id', component: UpdatePetTypeComponent},
   {path: 'pet/:id', component: PetComponent},
   {path: 'owner/:id', component: OwnerComponent},
+  {path: 'admin-list', component: AdminListComponent},
   {path: 'vet-list', component: VetListComponent},
   {path: 'pet-list', component: PetListComponent},
   {path: 'appointment-list', component: AppointmentListComponent},

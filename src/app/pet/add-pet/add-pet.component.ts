@@ -4,11 +4,9 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {Location} from '@angular/common';
 import {PetType} from '../../shared/models/petType';
 import {Owner} from '../../shared/models/owner';
-import {Vet} from '../../shared/models/vet';
 import {Pet} from '../../shared/models/pet';
 import {PetTypeService} from '../../shared/services/pet-type.service';
 import {IsVaccinatedService} from '../../shared/services/is-vaccinated.service';
-import * as moment from 'moment';
 import {OwnerService} from '../../shared/services/owner.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
