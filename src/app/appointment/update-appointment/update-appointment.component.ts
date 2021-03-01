@@ -39,7 +39,7 @@ export class UpdateAppointmentComponent implements OnInit {
       description: this.appointment.description,
       date: this.appointment.date,
       time: this.appointment.time,
-      // pet: this.appointment.pet.id
+      pet: this.appointment.pet.id
     });
   }
 

@@ -35,11 +35,13 @@
         </label>
       </mat-form-field>
       <br>
-      <!--<br>
+      <br>
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Pet id</mat-label>
-        <input formControlName="pet" matInput>
-      </mat-form-field>-->
+        <label>
+          <input formControlName="pet" matInput placeholder="pet">
+        </label>
+      </mat-form-field>
       <br>
       <mat-card-actions>
         <button color="primary" [disabled]="updateAppointmentGroup.invalid" mat-raised-button>Update</button>
