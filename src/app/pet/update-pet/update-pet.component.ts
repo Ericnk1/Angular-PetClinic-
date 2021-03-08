@@ -9,6 +9,7 @@ import {PetTypeService} from '../../shared/services/pet-type.service';
 import {OwnerService} from '../../shared/services/owner.service';
 import {IsVaccinatedService} from '../../shared/services/is-vaccinated.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-update-pet',
@@ -66,7 +67,7 @@ export class UpdatePetComponent implements OnInit {
   updatePet(pet: Pet): void {
     this.owner = this.updateOwnerGroup.value;
     pet.owner = this.owner;
-    // pet.dateOfBirth = this.pet.dateOfBirth;
+    pet.dateOfBirth = new Date(moment(pet.dateOfBirth).format('YY/mm/dd'));
     this.pet = this.updatePetGroup.value;
     console.log(pet);
     this.petService.updatePet(pet.id, pet).subscribe(value => window.location.assign('/pet-list'));

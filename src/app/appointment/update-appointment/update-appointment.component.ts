@@ -6,6 +6,7 @@ import {Location} from '@angular/common';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {PetService} from '../../shared/services/pet.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-update-appointment',
@@ -49,6 +50,7 @@ export class UpdateAppointmentComponent implements OnInit {
       this.newPet = response;
     });
     this.appointment = this.updateAppointmentGroup.value;
+    appointment.date = new Date(moment(appointment.date).format('YY/mm/dd'));
     console.log(appointment);
     this.appointmentService.updateAppointment(appointment.id, appointment).subscribe(value => window.location.assign('/appointment-list'));
   }
