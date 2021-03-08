@@ -14,12 +14,11 @@ import {PetService} from '../shared/services/pet.service';
 export class AppointmentComponent implements OnInit {
 
   newPet: Pet;
-  appointment = Appointment;
+  appointment: Appointment;
 
   constructor(private appointmentService: AppointmentService, private location: Location,
               private formBuilder: FormBuilder, private petService: PetService) {
     this.newPet = {} as Pet;
-    // @ts-ignore
     this.appointment = {} as Appointment;
   }
 
@@ -34,15 +33,15 @@ export class AppointmentComponent implements OnInit {
       description: '',
       date: '',
       time: '',
-      // pet: ''
+      pet: ''
     });
   }
 
   addAppointment(appointment: Appointment): void {
-    appointment.pet = this.newPet;
     this.petService.getPetById(this.newPet.id).subscribe(response => {
       this.newPet = response;
     });
+    appointment.pet = this.newPet;
     this.appointment = this.addAppointmentGroup.value;
     console.log(appointment);
     this.appointmentService.addAppointment(appointment).subscribe(value => window.location.assign('/home'));

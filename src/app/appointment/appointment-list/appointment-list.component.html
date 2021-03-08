@@ -34,7 +34,7 @@
 
     <ng-container matColumnDef="pet">
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Pet Id </th>
-      <td mat-cell *matCellDef="let appointment"> {{appointment.pet}} </td>
+      <td mat-cell *matCellDef="let appointment"> {{appointment.pet.id}} </td>
     </ng-container>
 
     <ng-container matColumnDef="button">
