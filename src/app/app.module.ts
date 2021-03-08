@@ -56,7 +56,6 @@ import { UpdatePetTypeComponent } from './pet-type/update-pet-type/update-pet-ty
 import { AdminListComponent } from './admin/admin-list/admin-list.component';
 import { UpdateAdminComponent } from './admin/update-admin/update-admin.component';
 import { AddAdminComponent } from './admin/add-admin/add-admin.component';
-import { LoginComponent } from './login/login.component';
 
 // @ts-ignore
 @NgModule({
@@ -92,7 +91,6 @@ import { LoginComponent } from './login/login.component';
     AdminListComponent,
     UpdateAdminComponent,
     AddAdminComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,
