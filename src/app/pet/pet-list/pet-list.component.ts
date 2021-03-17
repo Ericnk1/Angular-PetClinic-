@@ -21,8 +21,8 @@ import {Location} from '@angular/common';
 })
 export class PetListComponent implements OnInit {
 
-  displayedColumnsActivePet: string[] = ['id', 'name', 'dateOfBirth', 'isVaccinated', 'petType', 'owner', 'button'];
-  displayedColumnsPetAll: string[] = ['id', 'name', 'dateOfBirth', 'isVaccinated', 'petType', 'owner', 'button'];
+  displayedColumnsActivePet: string[] = ['id', 'name', 'dateOfBirth', 'button'];
+  displayedColumnsPetAll: string[] = ['id', 'name', 'dateOfBirth', 'button'];
 
   dataSourceActivePet = null;
   dataSourcePetAll = null;

@@ -11,3 +11,11 @@ mat-grid-tile {
 .container{
   background-image: url("src/assets/image/dog_on_the_beach.jpg");
 }
+
+.content {
+  padding: 16px;
+}
+
+.mat-elevation-z4 {
+  width: 200px;
+}

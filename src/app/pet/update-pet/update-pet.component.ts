@@ -64,13 +64,13 @@ export class UpdatePetComponent implements OnInit {
     });
   }
 
-  updatePet(pet: Pet): void {
+  updatePet(): void {
     this.owner = this.updateOwnerGroup.value;
-    pet.owner = this.owner;
-    pet.dateOfBirth = new Date(moment(pet.dateOfBirth).format('YY/mm/dd'));
+    this.pet.owner = this.owner;
+    this.pet.dateOfBirth = new Date(this.pet.dateOfBirth);
     this.pet = this.updatePetGroup.value;
-    console.log(pet);
-    this.petService.updatePet(pet.id, pet).subscribe(value => window.location.assign('/pet-list'));
+    console.log(this.pet);
+    this.petService.updatePet(this.pet.id, this.pet).subscribe(value => window.location.assign('/pet-list'));
   }
 
   goBack(): void {

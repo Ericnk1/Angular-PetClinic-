@@ -55,8 +55,8 @@
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
       <td mat-cell *matCellDef="let petType">
         <mat-card-actions>
-          <button mat-raised-button (click)="updatePetType(petType)" color="primary">Update</button>
-          <button mat-raised-button color="warn" (click)="deletePetType(petType.id)">Delete</button>
+          <!--<button mat-raised-button (click)="updatePetType(petType)" color="primary">Update</button>-->
+          <!--<button mat-raised-button color="warn" (click)="deletePetType(petType.id)">Delete</button>-->
           <button mat-raised-button color="accent" (click)="fullyDeletePetType(petType.id)">Full Delete</button>
           <button mat-raised-button (click)="restorePetType(petType.id)">Restore</button>
         </mat-card-actions>

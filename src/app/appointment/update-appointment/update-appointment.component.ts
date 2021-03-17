@@ -40,17 +40,17 @@ export class UpdateAppointmentComponent implements OnInit {
       description: this.appointment.description,
       date: this.appointment.date,
       time: this.appointment.time,
-      pet: this.appointment.pet.id
+      // pet: this.appointment.pet.id
     });
   }
 
   updateAppointment(appointment: Appointment): void {
-    appointment.pet = this.newPet;
+    /*appointment.pet = this.newPet;
     this.petService.getPetById(this.newPet.id).subscribe(response => {
       this.newPet = response;
-    });
+    });*/
     this.appointment = this.updateAppointmentGroup.value;
-    appointment.date = new Date(moment(appointment.date).format('YY/mm/dd'));
+    appointment.date = new Date(appointment.date);
     console.log(appointment);
     this.appointmentService.updateAppointment(appointment.id, appointment).subscribe(value => window.location.assign('/appointment-list'));
   }

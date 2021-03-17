@@ -32,7 +32,7 @@ export class AddOwnerComponent implements OnInit {
   addOwner(): void {
     const addOwner = new Owner(null, this.addOwnerGroup.get('firstName').value,
       this.addOwnerGroup.get('lastName').value, this.addOwnerGroup.get('address').value,
-      this.addOwnerGroup.get('telephoneNumber').value, this.addOwnerGroup.get('email').value, null);
+      this.addOwnerGroup.get('telephoneNumber').value, this.addOwnerGroup.get('email').value, null, null);
     console.log(addOwner);
     this.ownerService.addOwner(addOwner).subscribe(value => window.location.assign('/owner-list'));
   }

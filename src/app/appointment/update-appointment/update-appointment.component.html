@@ -1,22 +1,17 @@
 <mat-toolbar>
-  <span>Appointment Update Form</span>
+  <span>Appointment update Form</span>
 </mat-toolbar>
 <mat-card class="my-card">
   <mat-card-content>
     <form [formGroup]="updateAppointmentGroup"  class="my-form" (ngSubmit)="updateAppointment(updateAppointmentGroup.value)">
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Id</mat-label>
-        <label>
-          <textarea formControlName="id" matInput placeholder="id" required></textarea>
-        </label>
+        <input formControlName="id" matInput placeholder="id" required>
       </mat-form-field>
       <br>
-
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Description</mat-label>
-        <label>
-          <textarea formControlName="description" matInput placeholder="description" required></textarea>
-        </label>
+        <textarea formControlName="description" matInput placeholder="description..." required></textarea>
       </mat-form-field>
       <br>
       <mat-form-field class="full-width" appearance="fill">
@@ -31,20 +26,20 @@
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Time</mat-label>
         <label>
-          <input type="time" formControlName="time" matInput placeholder="time" required>
+          <input type="time" formControlName="time" placeholder="time" matInput required>
         </label>
       </mat-form-field>
       <br>
-      <br>
+      <!--<br>
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Pet id</mat-label>
         <label>
-          <input formControlName="pet" matInput placeholder="pet">
+          <input type="number" formControlName="pet" matInput>
         </label>
-      </mat-form-field>
+      </mat-form-field>-->
       <br>
       <mat-card-actions>
-        <button color="primary" [disabled]="updateAppointmentGroup.invalid" mat-raised-button>Update</button>
+        <button color="primary" [disabled]="updateAppointmentGroup.invalid" mat-raised-button>Book</button>
         <button (click)="goBack()" color="warn" mat-raised-button>BACK</button>
       </mat-card-actions>
     </form>

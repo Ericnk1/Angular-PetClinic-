@@ -6,6 +6,7 @@ import {Appointment} from '../shared/models/appointment';
 import {Pet} from '../shared/models/pet';
 import {PetService} from '../shared/services/pet.service';
 import * as moment from 'moment';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-appointment',
@@ -17,7 +18,7 @@ export class AppointmentComponent implements OnInit {
   newPet: Pet;
   appointment: Appointment;
 
-  constructor(private appointmentService: AppointmentService, private location: Location,
+  constructor(private appointmentService: AppointmentService, private location: Location, private router: Router,
               private formBuilder: FormBuilder, private petService: PetService) {
     this.newPet = {} as Pet;
     this.appointment = {} as Appointment;
@@ -41,16 +42,16 @@ export class AppointmentComponent implements OnInit {
   addAppointment(appointment: Appointment): void {
     this.petService.getPetById(this.newPet.id).subscribe(response => {
       this.newPet = response;
+      appointment.pet = this.newPet;
     });
-    appointment.pet = this.newPet;
-    appointment.date =  new Date(moment(appointment.date).format('YY/mm/dd'));
+    appointment.date =  new Date(appointment.date);
     this.appointment = this.addAppointmentGroup.value;
     console.log(appointment);
     this.appointmentService.addAppointment(appointment).subscribe(value => window.location.assign('/home'));
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['/admin']);
   }
 
 }

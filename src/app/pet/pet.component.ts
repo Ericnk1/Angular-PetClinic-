@@ -5,6 +5,7 @@ import {Appointment} from '../shared/models/appointment';
 import {MatTableDataSource} from '@angular/material/table';
 import {Pet} from '../shared/models/pet';
 import {ActivatedRoute, Router} from '@angular/router';
+import {PetService} from '../shared/services/pet.service';
 
 @Component({
   selector: 'app-pet',
@@ -21,14 +22,16 @@ export class PetComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private appointmentService: AppointmentService, private route: ActivatedRoute, private router: Router) {
+  constructor(private appointmentService: AppointmentService, private petService: PetService,
+              private route: ActivatedRoute, private router: Router) {
     this.pet = {} as Pet;
   }
 
   ngOnInit(): void {
     this.pet.id = this.route.snapshot.params.id;
-    this.appointmentService.findAppointmentByPetId(this.pet.id).subscribe(value => {
-      this.appointments = value;
+    this.petService.getPetById(this.pet.id).subscribe(value => {
+      this.pet = value;
+      this.pet.appointmentList = this.appointments;
       console.log(value);
       this.dataSourceAllAppointment = new MatTableDataSource(this.appointments);
       this.dataSourceAllAppointment.sort = this.sort;

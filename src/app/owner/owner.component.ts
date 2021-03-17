@@ -6,6 +6,8 @@ import {Appointment} from '../shared/models/appointment';
 import {MatTableDataSource} from '@angular/material/table';
 import {PetService} from '../shared/services/pet.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Owner} from '../shared/models/owner';
+import {OwnerService} from '../shared/services/owner.service';
 
 @Component({
   selector: 'app-owner',
@@ -18,21 +20,24 @@ export class OwnerComponent implements OnInit {
   dataSourceAllPet = null;
 
   pets: Pet[];
+  owner: Owner;
   pet: Pet;
   petType: PetType;
   appointment: Appointment;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private petService: PetService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private petService: PetService, private ownerService: OwnerService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    /*this.pet.owner.id = this.route.snapshot.params.id;
-    this.petService.getPetById(this.pet.owner.id).subscribe(value => {
-      this.pet.owner.id = value;
+    this.owner.id = this.route.snapshot.params.id;
+    this.ownerService.getOwnerById(this.owner.id).subscribe(value => {
+      this.owner = value;
       console.log(value);
+      this.owner.pets = this.pets;
+      console.log(this.pets);
       this.dataSourceAllPet = new MatTableDataSource(this.pets);
       this.dataSourceAllPet.sort = this.sort;
-    });*/
+    });
   }
 
   goBack(): void {

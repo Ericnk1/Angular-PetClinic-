@@ -62,14 +62,14 @@ export class AddPetComponent implements OnInit {
     console.log(this.newOwner);
   }*/
 
-  addPet(pet: Pet): void {
+  addPet(): void {
     this.newOwner = this.addOwnerGroup.value;
-    pet.id = null;
-    pet.owner = this.newOwner;
-    pet.dateOfBirth = new Date(moment(pet.dateOfBirth).format('YY/mm/dd'));
+    this.pet.id = null;
+    this.pet.owner = this.newOwner;
+    this.pet.dateOfBirth = new Date(this.pet.dateOfBirth);
     this.pet = this.addPetGroup.value;
-    console.log(pet);
-    this.petService.addPet(pet).subscribe(value => window.location.assign('/pet-list'));
+    console.log(this.pet);
+    this.petService.addPet(this.pet).subscribe(value => window.location.assign('/pet-list'));
   }
 
   goBack(): void {

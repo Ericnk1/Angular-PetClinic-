@@ -18,10 +18,10 @@ import {Location} from '@angular/common';
 })
 export class AppointmentListComponent implements OnInit {
 
-  displayedColumnsActiveAppointment: string[] = ['id', 'description', 'date', 'time', 'pet', 'button'];
+  displayedColumnsActiveAppointment: string[] = ['id', 'description', 'date', 'time', 'button'];
   dataSourceActiveAppointment = null;
 
-  displayedColumnsAppointmentAll: string[] = ['id', 'description', 'date', 'time', 'pet', 'button'];
+  displayedColumnsAppointmentAll: string[] = ['id', 'description', 'date', 'time', 'button'];
   dataSourceAppointmentAll = null;
 
   pet: Pet;
