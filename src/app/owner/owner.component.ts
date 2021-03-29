@@ -33,7 +33,7 @@ export class OwnerComponent implements OnInit {
     this.ownerService.getOwnerById(this.owner.id).subscribe(value => {
       this.owner = value;
       console.log(value);
-      this.owner.pets = this.pets;
+      this.pets = this.owner.pets;
       console.log(this.pets);
       this.dataSourceAllPet = new MatTableDataSource(this.pets);
       this.dataSourceAllPet.sort = this.sort;

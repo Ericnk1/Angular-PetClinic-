@@ -37,22 +37,28 @@ export class AddPetComponent implements OnInit {
   addPetGroup: FormGroup;
 
   ngOnInit(): void {
+    const ownerId = this.route.snapshot.params.id;
+    this.ownerService.getOwnerById(ownerId).subscribe(
+      response => {
+        this.newOwner = response;
+      });
     this.isVaccinatedService.getIsVaccinated().subscribe(value => this.isVaccinated = value);
     this.petTypeService.getAllActivePetTypes().subscribe(value => this.petTypes = value);
-    this.addOwnerGroup = this.formBuilder.group({
+    /*this.addOwnerGroup = this.formBuilder.group({
       id: '',
       firstName: '',
       lastName: '',
       address: '',
       telephoneNumber: '',
       email: ''
-    });
+    });*/
     this.addPetGroup = this.formBuilder.group({
       id: '',
       name: '',
       dateOfBirth: '',
       isVaccinated: '',
-      petType: ''
+      petType: '',
+      owner: ''
     });
   }
 
@@ -63,7 +69,6 @@ export class AddPetComponent implements OnInit {
   }*/
 
   addPet(): void {
-    this.newOwner = this.addOwnerGroup.value;
     this.pet.id = null;
     this.pet.owner = this.newOwner;
     this.pet.dateOfBirth = new Date(this.pet.dateOfBirth);

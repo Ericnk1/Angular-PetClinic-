@@ -48,6 +48,7 @@
           <button mat-raised-button (click)="ownersPets(owner)" color="primary">Pets</button>
           <button mat-raised-button (click)="updateOwner(owner)" color="primary">Update</button>
           <button mat-raised-button color="warn" (click)="deleteOwner(owner.id)">Delete</button>
+          <button mat-raised-button color="warn" (click)="addPets(owner.id)">Add pet</button>
         </mat-card-actions>
       </td>
     </ng-container>
@@ -99,7 +100,7 @@
           <!--<button mat-raised-button (click)="updateOwner(owner)" color="primary">Update</button>-->
           <!--<button mat-raised-button color="warn" (click)="deleteOwner(owner.id)">Delete</button>-->
           <button mat-raised-button color="accent" (click)="fullyDeleteOwner(owner.id)">Full Delete</button>
-          <button mat-raised-button (click)="restoreOwner(owner.id)">Restore</button>
+          <button mat-raised-button color="primary" (click)="restoreOwner(owner.id)">Restore</button>
         </mat-card-actions>
       </td>
     </ng-container>

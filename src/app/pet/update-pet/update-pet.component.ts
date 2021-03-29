@@ -44,30 +44,32 @@ export class UpdatePetComponent implements OnInit {
     this.pet.id = this.route.snapshot.params.id;
     this.petService.getPetById(this.pet.id).subscribe(value => {
       this.pet = value;
+      this.owner = this.pet.owner;
+      this.newPetType = this.pet.petType;
       console.log(value);
       this.updatePetGroup.setValue(this.pet);
-      this.updateOwnerGroup.setValue(this.pet.owner);
     });
     this.isVaccinatedService.getIsVaccinated().subscribe(value => this.isVaccinated = value);
     this.petTypeService.getAllActivePetTypes().subscribe(value => this.petTypes = value);
-    this.updateOwnerGroup = this.formBuilder.group({
+    /*this.updateOwnerGroup = this.formBuilder.group({
       id: new FormControl(this.pet.owner.id, Validators.required),
       firstName: new FormControl(this.pet.owner.firstName, Validators.required),
       lastName: new FormControl(this.pet.owner.lastName, Validators.required),
       address: new FormControl(this.pet.owner.address, Validators.required),
       telephoneNumber: new FormControl(this.pet.owner.telephoneNumber, Validators.required),
       email: new FormControl(this.pet.owner.email, Validators.required)
-    });
+    });*/
     this.updatePetGroup = this.formBuilder.group({
       id: new FormControl(this.pet.id, Validators.required),
       name: new FormControl(this.pet.name, Validators.required),
       dateOfBirth: new FormControl(this.pet.dateOfBirth, Validators.required),
-      petType: new FormControl(this.pet.petType, Validators.required)
+      petType: new FormControl(this.pet.petType, Validators.required),
+      owner: new FormControl(this.pet.owner.id, Validators.required)
     });
   }
 
   updatePet(): void {
-    this.owner = this.updateOwnerGroup.value;
+    // this.owner = this.updateOwnerGroup.value;
     this.pet.owner = this.owner;
     this.pet.dateOfBirth = new Date(this.pet.dateOfBirth);
     this.pet = this.updatePetGroup.value;

@@ -19,7 +19,7 @@ export class AppointmentComponent implements OnInit {
   appointment: Appointment;
 
   constructor(private appointmentService: AppointmentService, private location: Location, private router: Router,
-              private formBuilder: FormBuilder, private petService: PetService) {
+              private formBuilder: FormBuilder, private petService: PetService, private route: ActivatedRoute) {
     this.newPet = {} as Pet;
     this.appointment = {} as Appointment;
   }
@@ -31,6 +31,11 @@ export class AppointmentComponent implements OnInit {
     return day !== 0 && day !== 6;
   }
   ngOnInit(): void {
+    const petId = this.route.snapshot.params.id;
+    this.petService.getPetById(petId).subscribe(
+      response => {
+        this.newPet = response;
+      });
     this.addAppointmentGroup = this.formBuilder.group({
       description: '',
       date: '',
@@ -40,10 +45,11 @@ export class AppointmentComponent implements OnInit {
   }
 
   addAppointment(appointment: Appointment): void {
-    this.petService.getPetById(this.newPet.id).subscribe(response => {
+    /*this.petService.getPetById(this.newPet.id).subscribe(response => {
       this.newPet = response;
       appointment.pet = this.newPet;
-    });
+    });*/
+    appointment.pet = this.newPet;
     appointment.date =  new Date(appointment.date);
     this.appointment = this.addAppointmentGroup.value;
     console.log(appointment);

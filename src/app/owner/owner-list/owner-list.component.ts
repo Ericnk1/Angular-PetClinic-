@@ -72,6 +72,10 @@ export class OwnerListComponent implements OnInit {
     this.router.navigate(['owner', owner.id]);
   }
 
+  addPets(owner: Owner): void {
+    this.router.navigate(['add-pet', owner.id]);
+  }
+
   goBack(): void {
     this.router.navigate(['/admin']);
   }

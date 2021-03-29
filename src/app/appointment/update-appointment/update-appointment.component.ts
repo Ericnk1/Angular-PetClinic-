@@ -43,7 +43,7 @@ export class UpdateAppointmentComponent implements OnInit {
       description: new FormControl(this.appointment.description, Validators.required),
       date: new FormControl(this.appointment.date, Validators.required),
       time: new FormControl(this.appointment.time, Validators.required),
-      pet: new FormControl(this.appointment.pet.id, Validators.required)
+      //pet: new FormControl(this.appointment.pet.id, Validators.required)
     });
   }
 

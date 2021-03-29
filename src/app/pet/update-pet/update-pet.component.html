@@ -43,8 +43,16 @@
         </mat-select>
       </mat-form-field>
       <br>
+      <br>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label> Owner </mat-label>
+        <label>
+          <input formControlName="owner" matInput required>
+        </label>
+      </mat-form-field>
+      <br>
 
-      <h3>Owner info</h3>
+      <!--<h3>Owner info</h3>
       <table class="full-width" [formGroup]="updateOwnerGroup"> <tr>
         <td>
           <mat-form-field appearance="fill" class="full-width">
@@ -90,7 +98,7 @@
               <input formControlName="email" matInput>
             </label>
           </mat-form-field></td>
-      </tr></table>
+      </tr></table>-->
       <br>
       <mat-card-actions>
         <button color="primary" [disabled]="updatePetGroup.invalid" mat-raised-button>Update pet</button>

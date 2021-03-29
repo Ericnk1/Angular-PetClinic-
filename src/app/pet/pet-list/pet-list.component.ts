@@ -75,6 +75,9 @@ export class PetListComponent implements OnInit {
   petAppointments(pet: Pet): void {
     this.router.navigate(['/pet', pet.id]);
   }
+  addAppointments(pet: Pet): void {
+    this.router.navigate(['/appointment', pet.id]);
+  }
 
   goBack(): void {
     this.router.navigate(['/admin']);
