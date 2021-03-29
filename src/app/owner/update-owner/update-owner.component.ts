@@ -36,7 +36,7 @@ export class UpdateOwnerComponent implements OnInit {
       address: new FormControl(this.owner.address, Validators.required),
       telephoneNumber: new FormControl(this.owner.telephoneNumber, Validators.required),
       email: new FormControl(this.owner.email, Validators.required),
-      pets : new FormControl(this.owner.pets, Validators.required)
+      pets : null
     });
   }
 

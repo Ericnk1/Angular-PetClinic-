@@ -45,10 +45,10 @@
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
       <td mat-cell *matCellDef="let pet">
         <mat-card-actions>
-          <button mat-raised-button (click)="petAppointments(pet)" color="primary">Appmnts</button>
+          <button mat-raised-button (click)="petAppointments(pet)" color="primary">visits</button>
           <button mat-raised-button (click)="update(pet)" color="primary">Update</button>
           <button mat-raised-button color="warn" (click)="deletePet(pet.id)">Delete</button>
-          <button mat-raised-button color="primary" (click)="addAppointments(pet)">New-App</button>
+          <button mat-raised-button color="primary" (click)="addAppointments(pet)">New-visit</button>
         </mat-card-actions>
       </td>
     </ng-container>

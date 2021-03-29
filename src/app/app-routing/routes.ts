@@ -28,7 +28,7 @@ import {AdminListComponent} from '../admin/admin-list/admin-list.component';
 
 export const routes: Routes = [
   { path: 'home',  component: HomeComponent },
-  {path: 'appointment', component: AppointmentComponent},
+  {path: 'appointment/:id', component: AppointmentComponent},
   {path: 'services', component: ServicesComponent},
   {path: 'price', component: PriceComponent},
   {path: 'contact', component: ContactComponent},
@@ -36,7 +36,7 @@ export const routes: Routes = [
   {path: 'admin', component: AdminComponent},
   {path: 'add-admin', component: AddAdminComponent},
   {path: 'add-vet', component: AddVetComponent},
-  {path: 'add-pet', component: AddPetComponent},
+  {path: 'add-pet/:id', component: AddPetComponent},
   {path: 'add-owner', component: AddOwnerComponent},
   {path: 'add-petType', component: AddPetTypeComponent},
   {path: 'update-admin/:id', component: UpdateAdminComponent},
