@@ -26,6 +26,7 @@ export class UpdateOwnerComponent implements OnInit {
     this.owner.id = this.route.snapshot.params.id;
     this.ownerService.getOwnerById(this.owner.id).subscribe(value => {
       this.owner = value
+      this.owner.pets = null;
       this.updateOwnerGroup.setValue(this.owner);
     });
     console.log(this.owner);
@@ -35,8 +36,7 @@ export class UpdateOwnerComponent implements OnInit {
       lastName: new FormControl(this.owner.lastName, Validators.required),
       address: new FormControl(this.owner.address, Validators.required),
       telephoneNumber: new FormControl(this.owner.telephoneNumber, Validators.required),
-      email: new FormControl(this.owner.email, Validators.required),
-      pets : null
+      email: new FormControl(this.owner.email, Validators.required)
     });
   }
 
