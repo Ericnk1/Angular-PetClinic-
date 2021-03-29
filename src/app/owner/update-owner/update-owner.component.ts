@@ -30,12 +30,12 @@ export class UpdateOwnerComponent implements OnInit {
     });
     console.log(this.owner);
     this.updateOwnerGroup = this.formBuilder.group({
-      id: new FormControl(this.owner.id),
-      firstName: new FormControl(this.owner.firstName),
-      lastName: new FormControl(this.owner.lastName),
-      address: new FormControl(this.owner.address),
-      telephoneNumber: new FormControl(this.owner.telephoneNumber),
-      email: new FormControl(this.owner.email),
+      id: new FormControl(this.owner.id, Validators.required),
+      firstName: new FormControl(this.owner.firstName, Validators.required),
+      lastName: new FormControl(this.owner.lastName, Validators.required),
+      address: new FormControl(this.owner.address, Validators.required),
+      telephoneNumber: new FormControl(this.owner.telephoneNumber, Validators.required),
+      email: new FormControl(this.owner.email, Validators.required),
     });
   }
 
