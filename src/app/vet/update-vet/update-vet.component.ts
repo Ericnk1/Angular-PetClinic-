@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {VetService} from '../../shared/services/vet.service';
 import {Location} from '@angular/common';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Vet} from '../../shared/models/vet';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -24,13 +24,16 @@ export class UpdateVetComponent implements OnInit {
 
   ngOnInit(): void {
     this.vet.id = this.route.snapshot.params.id;
-    this.vetService.getVetById(this.vet.id).subscribe(value => this.vet = value);
+    this.vetService.getVetById(this.vet.id).subscribe(value => {
+      this.vet = value
+      this.updateVetGroup.setValue(this.vet);
+    });
     console.log(this.vet);
     this.updateVetGroup = this.formBuilder.group({
-      id: this.vet.id,
-      firstName: this.vet.firstName,
-      lastName: this.vet.lastName,
-      email: this.vet.email
+      id: new FormControl(this.vet.id, Validators.required),
+      firstName: new FormControl(this.vet.firstName, Validators.required),
+      lastName: new FormControl(this.vet.lastName, Validators.required),
+      email: new FormControl(this.vet.email, Validators.required)
     });
   }
 

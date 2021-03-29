@@ -3,7 +3,7 @@ import {Pet} from '../../shared/models/pet';
 import {Appointment} from '../../shared/models/appointment';
 import {AppointmentService} from '../../shared/services/appointment.service';
 import {Location} from '@angular/common';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {PetService} from '../../shared/services/pet.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import * as moment from 'moment';
@@ -33,14 +33,17 @@ export class UpdateAppointmentComponent implements OnInit {
   }
   ngOnInit(): void {
     this.appointment.id = this.route.snapshot.params.id;
-    this.appointmentService.getAppointmentById(this.appointment.id).subscribe(value => this.appointment = value);
+    this.appointmentService.getAppointmentById(this.appointment.id).subscribe(value => {
+      this.appointment = value
+      this.updateAppointmentGroup.setValue(this.appointment);
+    });
     console.log(this.appointment);
     this.updateAppointmentGroup = this.formBuilder.group({
-      id: this.appointment.id,
-      description: this.appointment.description,
-      date: this.appointment.date,
-      time: this.appointment.time,
-      // pet: this.appointment.pet.id
+      id: new FormControl(this.appointment.id, Validators.required),
+      description: new FormControl(this.appointment.description, Validators.required),
+      date: new FormControl(this.appointment.date, Validators.required),
+      time: new FormControl(this.appointment.time, Validators.required),
+      pet: new FormControl(this.appointment.pet.id, Validators.required)
     });
   }
 

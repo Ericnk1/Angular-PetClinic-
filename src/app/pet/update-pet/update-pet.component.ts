@@ -4,7 +4,7 @@ import {PetType} from '../../shared/models/petType';
 import {Owner} from '../../shared/models/owner';
 import {PetService} from '../../shared/services/pet.service';
 import {Location} from '@angular/common';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {PetTypeService} from '../../shared/services/pet-type.service';
 import {OwnerService} from '../../shared/services/owner.service';
 import {IsVaccinatedService} from '../../shared/services/is-vaccinated.service';
@@ -45,22 +45,24 @@ export class UpdatePetComponent implements OnInit {
     this.petService.getPetById(this.pet.id).subscribe(value => {
       this.pet = value;
       console.log(value);
+      this.updatePetGroup.setValue(this.pet);
+      this.updateOwnerGroup.setValue(this.pet.owner);
     });
     this.isVaccinatedService.getIsVaccinated().subscribe(value => this.isVaccinated = value);
     this.petTypeService.getAllActivePetTypes().subscribe(value => this.petTypes = value);
     this.updateOwnerGroup = this.formBuilder.group({
-      id: '',
-      firstName: '',
-      lastName: '',
-      address: '',
-      telephoneNumber: '',
-      email: ''
+      id: new FormControl(this.pet.owner.id, Validators.required),
+      firstName: new FormControl(this.pet.owner.firstName, Validators.required),
+      lastName: new FormControl(this.pet.owner.lastName, Validators.required),
+      address: new FormControl(this.pet.owner.address, Validators.required),
+      telephoneNumber: new FormControl(this.pet.owner.telephoneNumber, Validators.required),
+      email: new FormControl(this.pet.owner.email, Validators.required)
     });
     this.updatePetGroup = this.formBuilder.group({
-      id: this.pet.id,
-      name: this.pet.name,
-      dateOfBirth: this.pet.dateOfBirth,
-      petType: this.pet.petType
+      id: new FormControl(this.pet.id, Validators.required),
+      name: new FormControl(this.pet.name, Validators.required),
+      dateOfBirth: new FormControl(this.pet.dateOfBirth, Validators.required),
+      petType: new FormControl(this.pet.petType, Validators.required)
     });
   }
 

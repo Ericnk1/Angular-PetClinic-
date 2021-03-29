@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {PetTypeService} from '../../shared/services/pet-type.service';
 import {Location} from '@angular/common';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {PetType} from '../../shared/models/petType';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -29,11 +29,12 @@ export class UpdatePetTypeComponent implements OnInit {
     this.petTypeService.getPetTypeById(this.petType.id).subscribe(value => {
       this.petType = value;
       console.log(this.petType);
+      this.updatePetTypeGroup.setValue(this.petType);
     });
     console.log(this.petType);
     this.updatePetTypeGroup = this.formBuilder.group({
-      id: [this.petType.id, [Validators.required, Validators.pattern] ],
-      name: [this.petType.name, [Validators.required, Validators.minLength(2), Validators.maxLength(25), Validators.pattern] ]
+      id: new FormControl(this.petType.id, Validators.required),
+      name: new FormControl(this.petType.name, Validators.required)
     });
   }
   updatePetType(petType: PetType): void {

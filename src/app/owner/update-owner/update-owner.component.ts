@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {OwnerService} from '../../shared/services/owner.service';
 import {Location} from '@angular/common';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Owner} from '../../shared/models/owner';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -24,15 +24,18 @@ export class UpdateOwnerComponent implements OnInit {
 
   ngOnInit(): void {
     this.owner.id = this.route.snapshot.params.id;
-    this.ownerService.getOwnerById(this.owner.id).subscribe(value => this.owner = value);
+    this.ownerService.getOwnerById(this.owner.id).subscribe(value => {
+      this.owner = value
+      this.updateOwnerGroup.setValue(this.owner);
+    });
     console.log(this.owner);
     this.updateOwnerGroup = this.formBuilder.group({
-      id: this.owner.id,
-      firstName: this.owner.firstName,
-      lastName: this.owner.lastName,
-      address: this.owner.address,
-      telephoneNumber: this.owner.telephoneNumber,
-      email: this.owner.email
+      id: new FormControl(this.owner.id, Validators.required),
+      firstName: new FormControl(this.owner.firstName, Validators.required),
+      lastName: new FormControl(this.owner.lastName, Validators.required),
+      address: new FormControl(this.owner.address, Validators.required),
+      telephoneNumber: new FormControl(this.owner.telephoneNumber, Validators.required),
+      email: new FormControl(this.owner.email, Validators.required)
     });
   }
 

@@ -3,7 +3,7 @@ import {Admin} from '../../shared/models/admin';
 import {AdminService} from '../../shared/services/admin.service';
 import {Location} from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-update-admin',
@@ -24,13 +24,17 @@ export class UpdateAdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.admin.id = this.route.snapshot.params.id;
-    this.adminService.getAdminById(this.admin.id).subscribe(value => this.admin = value);
+    this.adminService.getAdminById(this.admin.id).subscribe(value =>
+    {
+      this.admin = value;
+      this.updateAdminGroup.setValue(this.admin);
+    });
     console.log(this.admin);
     this.updateAdminGroup = this.formBuilder.group({
-      id: this.admin.id,
-      firstName: this.admin.firstName,
-      lastName: this.admin.lastName,
-      email: this.admin.email
+      id: new FormControl(this.admin.id, Validators.required),
+      firstName: new FormControl(this.admin.firstName, Validators.required),
+      lastName: new FormControl(this.admin.lastName, Validators.required),
+      email: new FormControl(this.admin.email, Validators.required)
     });
   }
 
