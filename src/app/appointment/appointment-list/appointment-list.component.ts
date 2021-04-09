@@ -1,7 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Pet} from '../../shared/models/pet';
 import {Owner} from '../../shared/models/owner';
-import {PetType} from '../../shared/models/petType';
 import {Appointment} from '../../shared/models/appointment';
 import {MatSort} from '@angular/material/sort';
 import {PetService} from '../../shared/services/pet.service';
@@ -26,7 +25,6 @@ export class AppointmentListComponent implements OnInit {
 
   pet: Pet;
   owner: Owner;
-  petType: PetType;
   appointments: Appointment[];
   appointment: Appointment;
   @ViewChild(MatSort) sort: MatSort;

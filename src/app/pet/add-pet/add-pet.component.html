@@ -16,6 +16,11 @@
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
       <br>
+     <!-- <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Is Vaccinated(Yes/NO)</mat-label>
+        <input formControlName="isVaccinated" matInput>
+      </mat-form-field>
+      <br>-->
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Is Vaccinated</mat-label>
         <mat-select formControlName="isVaccinated" required>
@@ -27,7 +32,7 @@
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>PetType</mat-label>
         <mat-select formControlName="petType" required>
-          <mat-option *ngFor="let petType of petTypes" [value]="petType">{{petType.name}}</mat-option>
+          <mat-option *ngFor="let types of types" [value]="types">{{types}}</mat-option>
         </mat-select>
       </mat-form-field>
       <br>
@@ -67,12 +72,12 @@
             <input formControlName="email" matInput required>
           </mat-form-field></td>
       </tr></table>-->
-      <br>
-      <!--<mat-form-field appearance="fill" class="full-width">
+      <!--<br>
+      <mat-form-field appearance="fill" class="full-width">
         <mat-label>Owner's id</mat-label>
         <input formControlName="owner" matInput>
-      </mat-form-field>
-      <br>-->
+      </mat-form-field>-->
+      <br>
       <mat-card-actions>
         <button color="primary" [disabled]="addPetGroup.invalid" mat-raised-button>Add pet</button>
         <button (click)="goBack()" color="warn" mat-raised-button>BACK</button>

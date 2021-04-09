@@ -26,6 +26,13 @@
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Password</mat-label>
+        <label>
+          <input type="password" formControlName="password" matInput required>
+        </label>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill" class="full-width">
         <mat-label>Email</mat-label>
         <label>
           <input type="email" formControlName="email" matInput required>
@@ -33,7 +40,7 @@
       </mat-form-field>
       <br>
       <mat-card-actions>
-        <button color="primary" [disabled]="updateAdminGroup.invalid" mat-raised-button>Update Admin</button>
+        <button color="primary" mat-raised-button>Update Admin</button>
         <button (click)="goBack()" color="warn" mat-raised-button>BACK</button>
       </mat-card-actions>
     </form>

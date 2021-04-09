@@ -34,7 +34,7 @@ export class UpdateAppointmentComponent implements OnInit {
   ngOnInit(): void {
     this.appointment.id = this.route.snapshot.params.id;
     this.appointmentService.getAppointmentById(this.appointment.id).subscribe(value => {
-      this.appointment = value
+      this.appointment = value;
       this.updateAppointmentGroup.setValue(this.appointment);
     });
     console.log(this.appointment);
@@ -43,7 +43,7 @@ export class UpdateAppointmentComponent implements OnInit {
       description: new FormControl(this.appointment.description, Validators.required),
       date: new FormControl(this.appointment.date, Validators.required),
       time: new FormControl(this.appointment.time, Validators.required),
-      //pet: new FormControl(this.appointment.pet.id, Validators.required)
+      // pet: new FormControl(this.appointment.pet.id, Validators.required)
     });
   }
 

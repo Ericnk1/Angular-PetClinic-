@@ -9,7 +9,6 @@ import { AdminComponent } from './admin/admin.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { OwnerComponent } from './owner/owner.component';
 import { PetComponent } from './pet/pet.component';
-import { PetTypeComponent } from './pet-type/pet-type.component';
 import { VetComponent } from './vet/vet.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
@@ -40,7 +39,6 @@ import { AddOwnerComponent } from './owner/add-owner/add-owner.component';
 import { AddPetComponent } from './pet/add-pet/add-pet.component';
 import { AddVetComponent } from './vet/add-vet/add-vet.component';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { AddPetTypeComponent } from './pet-type/add-pet-type/add-pet-type.component';
 import {AgmCoreModule, MapsAPILoader} from '@agm/core';
 import { ServicesComponent } from './services/services.component';
 import { UpdatePetComponent } from './pet/update-pet/update-pet.component';
@@ -51,8 +49,6 @@ import { PetListComponent } from './pet/pet-list/pet-list.component';
 import { OwnerListComponent } from './owner/owner-list/owner-list.component';
 import { VetListComponent } from './vet/vet-list/vet-list.component';
 import { AppointmentListComponent } from './appointment/appointment-list/appointment-list.component';
-import { PetTypeListComponent } from './pet-type/pet-type-list/pet-type-list.component';
-import { UpdatePetTypeComponent } from './pet-type/update-pet-type/update-pet-type.component';
 import { AdminListComponent } from './admin/admin-list/admin-list.component';
 import { UpdateAdminComponent } from './admin/update-admin/update-admin.component';
 import { AddAdminComponent } from './admin/add-admin/add-admin.component';
@@ -65,7 +61,6 @@ import { AddAdminComponent } from './admin/add-admin/add-admin.component';
     AppointmentComponent,
     OwnerComponent,
     PetComponent,
-    PetTypeComponent,
     VetComponent,
     FooterComponent,
     HeaderComponent,
@@ -76,7 +71,6 @@ import { AddAdminComponent } from './admin/add-admin/add-admin.component';
     AddOwnerComponent,
     AddPetComponent,
     AddVetComponent,
-    AddPetTypeComponent,
     ServicesComponent,
     UpdatePetComponent,
     UpdateVetComponent,
@@ -86,8 +80,6 @@ import { AddAdminComponent } from './admin/add-admin/add-admin.component';
     OwnerListComponent,
     VetListComponent,
     AppointmentListComponent,
-    PetTypeListComponent,
-    UpdatePetTypeComponent,
     AdminListComponent,
     UpdateAdminComponent,
     AddAdminComponent,

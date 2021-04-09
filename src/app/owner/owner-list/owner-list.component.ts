@@ -2,12 +2,10 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Pet} from '../../shared/models/pet';
 import {Vet} from '../../shared/models/vet';
 import {Owner} from '../../shared/models/owner';
-import {PetType} from '../../shared/models/petType';
 import {Appointment} from '../../shared/models/appointment';
 import {MatSort} from '@angular/material/sort';
 import {PetService} from '../../shared/services/pet.service';
 import {VetService} from '../../shared/services/vet.service';
-import {PetTypeService} from '../../shared/services/pet-type.service';
 import {OwnerService} from '../../shared/services/owner.service';
 import {AppointmentService} from '../../shared/services/appointment.service';
 import {Router} from '@angular/router';
@@ -31,12 +29,11 @@ export class OwnerListComponent implements OnInit {
   vet: Vet;
   owners: Owner[];
   owner: Owner;
-  petType: PetType;
   appointment: Appointment;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private petService: PetService, private vetService: VetService, private location: Location,
-              private petTypeService: PetTypeService, private ownerService: OwnerService,
+              private ownerService: OwnerService,
               private appointmentService: AppointmentService, private router: Router) { }
 
   ngOnInit(): void {

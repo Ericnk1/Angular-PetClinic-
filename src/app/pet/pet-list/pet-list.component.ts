@@ -2,12 +2,10 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Pet} from '../../shared/models/pet';
 import {Vet} from '../../shared/models/vet';
 import {Owner} from '../../shared/models/owner';
-import {PetType} from '../../shared/models/petType';
 import {Appointment} from '../../shared/models/appointment';
 import {MatSort} from '@angular/material/sort';
 import {PetService} from '../../shared/services/pet.service';
 import {VetService} from '../../shared/services/vet.service';
-import {PetTypeService} from '../../shared/services/pet-type.service';
 import {OwnerService} from '../../shared/services/owner.service';
 import {AppointmentService} from '../../shared/services/appointment.service';
 import {Router} from '@angular/router';
@@ -21,8 +19,8 @@ import {Location} from '@angular/common';
 })
 export class PetListComponent implements OnInit {
 
-  displayedColumnsActivePet: string[] = ['id', 'name', 'dateOfBirth', 'button'];
-  displayedColumnsPetAll: string[] = ['id', 'name', 'dateOfBirth', 'button'];
+  displayedColumnsActivePet: string[] = ['id', 'name', 'dateOfBirth', 'isVaccinated', 'petType' , 'button'];
+  displayedColumnsPetAll: string[] = ['id', 'name', 'dateOfBirth', 'isVaccinated', 'petType', 'button'];
 
   dataSourceActivePet = null;
   dataSourcePetAll = null;
@@ -33,14 +31,12 @@ export class PetListComponent implements OnInit {
   vet: Vet;
   owners: Owner[];
   owner: Owner;
-  petTypes: PetType[];
-  petType: PetType;
   appointments: Appointment[];
   appointment: Appointment;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private petService: PetService, private vetService: VetService, private location: Location,
-              private petTypeService: PetTypeService, private ownerService: OwnerService,
+              private ownerService: OwnerService,
               private appointmentService: AppointmentService, private router: Router) { }
 
   ngOnInit(): void {
@@ -72,12 +68,12 @@ export class PetListComponent implements OnInit {
     this.router.navigate(['/update-pet', pet.id]);
   }
 
-  petAppointments(pet: Pet): void {
+  /*petAppointments(pet: Pet): void {
     this.router.navigate(['/pet', pet.id]);
   }
   addAppointments(pet: Pet): void {
     this.router.navigate(['/appointment', pet.id]);
-  }
+  }*/
 
   goBack(): void {
     this.router.navigate(['/admin']);

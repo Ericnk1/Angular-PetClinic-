@@ -39,18 +39,18 @@
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>PetType</mat-label>
         <mat-select formControlName="petType" required>
-          <mat-option *ngFor="let petType of petTypes" [value]="petType">{{petType.name}}</mat-option>
+          <mat-option *ngFor="let types of types" [value]="types">{{types}}</mat-option>
         </mat-select>
       </mat-form-field>
       <br>
       <br>
-      <mat-form-field appearance="fill" class="full-width">
+      <!--<mat-form-field appearance="fill" class="full-width">
         <mat-label> Owner </mat-label>
         <label>
           <input formControlName="owner" matInput required>
         </label>
       </mat-form-field>
-      <br>
+      <br>-->
 
       <!--<h3>Owner info</h3>
       <table class="full-width" [formGroup]="updateOwnerGroup"> <tr>
@@ -101,7 +101,7 @@
       </tr></table>-->
       <br>
       <mat-card-actions>
-        <button color="primary" [disabled]="updatePetGroup.invalid" mat-raised-button>Update pet</button>
+        <button color="primary" mat-raised-button>Update pet</button>
         <button (click)="goBack()" color="warn" mat-raised-button>BACK</button>
       </mat-card-actions>
     </form>

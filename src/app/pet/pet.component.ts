@@ -28,11 +28,12 @@ export class PetComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pet.id = this.route.snapshot.params.id;
-    this.petService.getPetById(this.pet.id).subscribe(value => {
+    const petId = this.route.snapshot.params.id;
+    this.petService.getPetById(petId).subscribe(value => {
       this.pet = value;
       this.pet.appointmentList = this.appointments;
       console.log(value);
+      console.log(this.appointments);
       this.dataSourceAllAppointment = new MatTableDataSource(this.appointments);
       this.dataSourceAllAppointment.sort = this.sort;
     });

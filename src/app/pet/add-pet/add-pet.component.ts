@@ -2,14 +2,14 @@ import {Component, Input, OnInit} from '@angular/core';
 import {PetService} from '../../shared/services/pet.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Location} from '@angular/common';
-import {PetType} from '../../shared/models/petType';
 import {Owner} from '../../shared/models/owner';
 import {Pet} from '../../shared/models/pet';
-import {PetTypeService} from '../../shared/services/pet-type.service';
 import {IsVaccinatedService} from '../../shared/services/is-vaccinated.service';
 import {OwnerService} from '../../shared/services/owner.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import * as moment from 'moment';
+import {TypesService} from '../../shared/services/types.service';
+import {valueReferenceToExpression} from '@angular/compiler-cli/src/ngtsc/annotations/src/util';
 
 @Component({
   selector: 'app-add-pet',
@@ -18,19 +18,16 @@ import * as moment from 'moment';
 })
 export class AddPetComponent implements OnInit {
   pet: Pet;
-  petTypes: PetType[];
   isVaccinated: string[];
+  types: string[];
   newOwner: Owner;
-  @Input() newPetType: PetType;
 
-  constructor(private petService: PetService, private location: Location,
+  constructor(private petService: PetService, private location: Location, private typesService: TypesService,
               private route: ActivatedRoute, private router: Router,
-              private formBuilder: FormBuilder, private petTypeService: PetTypeService,
+              private formBuilder: FormBuilder,
               private ownerService: OwnerService, private isVaccinatedService: IsVaccinatedService) {
     this.pet = {} as Pet;
     this.newOwner = {} as Owner;
-    this.newPetType = {} as PetType;
-    this.petTypes = [];
   }
 
   addOwnerGroup: FormGroup;
@@ -41,9 +38,10 @@ export class AddPetComponent implements OnInit {
     this.ownerService.getOwnerById(ownerId).subscribe(
       response => {
         this.newOwner = response;
+        console.log(this.newOwner);
       });
     this.isVaccinatedService.getIsVaccinated().subscribe(value => this.isVaccinated = value);
-    this.petTypeService.getAllActivePetTypes().subscribe(value => this.petTypes = value);
+    this.typesService.getPetTypes().subscribe(value => this.types = value);
     /*this.addOwnerGroup = this.formBuilder.group({
       id: '',
       firstName: '',
@@ -58,7 +56,7 @@ export class AddPetComponent implements OnInit {
       dateOfBirth: '',
       isVaccinated: '',
       petType: '',
-      owner: ''
+      owner: Object.values(this.newOwner).push(this.pet)
     });
   }
 

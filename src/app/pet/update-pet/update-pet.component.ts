@@ -1,15 +1,14 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Pet} from '../../shared/models/pet';
-import {PetType} from '../../shared/models/petType';
 import {Owner} from '../../shared/models/owner';
 import {PetService} from '../../shared/services/pet.service';
 import {Location} from '@angular/common';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {PetTypeService} from '../../shared/services/pet-type.service';
 import {OwnerService} from '../../shared/services/owner.service';
 import {IsVaccinatedService} from '../../shared/services/is-vaccinated.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import * as moment from 'moment';
+import {TypesService} from '../../shared/services/types.service';
 
 @Component({
   selector: 'app-update-pet',
@@ -21,36 +20,26 @@ export class UpdatePetComponent implements OnInit {
   displayedColumnsPet: string[] = ['id', 'name', 'dateOfBirth', 'isVaccinated', 'petType', 'owner'];
 
   dataSourcePet;
-  pet: Pet;
-  petTypes: PetType[];
   isVaccinated: string[];
+  types: string[];
+  pet: Pet;
   owner: Owner;
-  @Input() newPetType: PetType;
+  // @Input() newPetType: PetType;
 
-  constructor(private petService: PetService, private location: Location,
+  constructor(private petService: PetService, private location: Location, private typesService: TypesService,
               private route: ActivatedRoute, private router: Router,
-              private formBuilder: FormBuilder, private petTypeService: PetTypeService,
+              private formBuilder: FormBuilder,
               private ownerService: OwnerService, private isVaccinatedService: IsVaccinatedService) {
     this.pet = {} as Pet;
     this.owner = {} as Owner;
-    this.newPetType = {} as PetType;
-    this.petTypes = [];
   }
 
   updateOwnerGroup: FormGroup;
   updatePetGroup: FormGroup;
 
   ngOnInit(): void {
-    this.pet.id = this.route.snapshot.params.id;
-    this.petService.getPetById(this.pet.id).subscribe(value => {
-      this.pet = value;
-      this.owner = this.pet.owner;
-      this.newPetType = this.pet.petType;
-      console.log(value);
-      this.updatePetGroup.setValue(this.pet);
-    });
     this.isVaccinatedService.getIsVaccinated().subscribe(value => this.isVaccinated = value);
-    this.petTypeService.getAllActivePetTypes().subscribe(value => this.petTypes = value);
+    this.typesService.getPetTypes().subscribe(value => this.types = value);
     /*this.updateOwnerGroup = this.formBuilder.group({
       id: new FormControl(this.pet.owner.id, Validators.required),
       firstName: new FormControl(this.pet.owner.firstName, Validators.required),
@@ -59,12 +48,20 @@ export class UpdatePetComponent implements OnInit {
       telephoneNumber: new FormControl(this.pet.owner.telephoneNumber, Validators.required),
       email: new FormControl(this.pet.owner.email, Validators.required)
     });*/
+    const petId = this.route.snapshot.params.id;
+    this.petService.getPetById(petId).subscribe(value => {
+      this.pet = value;
+      this.owner = this.pet.owner;
+      console.log(value);
+      this.updatePetGroup.setValue(this.pet);
+    });
     this.updatePetGroup = this.formBuilder.group({
       id: new FormControl(this.pet.id, Validators.required),
       name: new FormControl(this.pet.name, Validators.required),
       dateOfBirth: new FormControl(this.pet.dateOfBirth, Validators.required),
+      isVaccinated: new FormControl(this.pet.isVaccinated, Validators.required),
       petType: new FormControl(this.pet.petType, Validators.required),
-      owner: new FormControl(this.pet.owner.id, Validators.required)
+      // owner: new FormControl(this.pet.owner.id)
     });
   }
 

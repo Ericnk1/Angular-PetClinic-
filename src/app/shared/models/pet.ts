@@ -1,19 +1,18 @@
 import {Owner} from './owner';
-import {PetType} from './petType';
 import {Appointment} from './appointment';
 
 export class Pet {
   id: number;
   name: string;
   dateOfBirth: Date;
-  isVaccinated: boolean;
-  petType: PetType;
+  isVaccinated: string;
+  petType: string;
   owner: Owner;
   appointmentList: Appointment[];
   isActive: boolean;
 
 
-  constructor(id: number, name: string, dateOfBirth: Date, isVaccinated: boolean, petType: PetType,
+  constructor(id: number, name: string, dateOfBirth: Date, isVaccinated: string, petType: string,
               owner: Owner, appointmentList: Appointment[], isActive: boolean) {
     this.id = id;
     this.name = name;

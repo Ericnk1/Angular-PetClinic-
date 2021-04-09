@@ -35,6 +35,7 @@ export class AppointmentComponent implements OnInit {
     this.petService.getPetById(petId).subscribe(
       response => {
         this.newPet = response;
+        console.log(this.newPet);
       });
     this.addAppointmentGroup = this.formBuilder.group({
       description: '',

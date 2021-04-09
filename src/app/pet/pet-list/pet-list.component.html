@@ -26,15 +26,15 @@
       <td mat-cell *matCellDef="let pet"> {{pet.dateOfBirth}} </td>
     </ng-container>
 
-    <!--<ng-container matColumnDef="isVaccinated">
+    <ng-container matColumnDef="isVaccinated">
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Vaccination </th>
       <td mat-cell *matCellDef="let pet"> {{pet.isVaccinated}} </td>
-    </ng-container>-->
+    </ng-container>
 
-    <!--<ng-container matColumnDef="petType">
+    <ng-container matColumnDef="petType">
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> PetType </th>
       <td mat-cell *matCellDef="let pet"> {{pet.petType}} </td>
-    </ng-container>-->
+    </ng-container>
 
     <!--<ng-container matColumnDef="owner">
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Owner Id </th>
@@ -45,10 +45,10 @@
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
       <td mat-cell *matCellDef="let pet">
         <mat-card-actions>
-          <button mat-raised-button (click)="petAppointments(pet)" color="primary">visits</button>
+          <!--<button mat-raised-button (click)="petAppointments(pet)" color="primary">visits</button>-->
           <button mat-raised-button (click)="update(pet)" color="primary">Update</button>
           <button mat-raised-button color="warn" (click)="deletePet(pet.id)">Delete</button>
-          <button mat-raised-button color="primary" (click)="addAppointments(pet)">New-visit</button>
+          <!--<button mat-raised-button color="primary" (click)="addAppointments(pet)">New-visit</button>-->
         </mat-card-actions>
       </td>
     </ng-container>
@@ -78,7 +78,7 @@
       <td mat-cell *matCellDef="let pet"> {{pet.dateOfBirth}} </td>
     </ng-container>
 
-    <!--<ng-container matColumnDef="isVaccinated">
+    <ng-container matColumnDef="isVaccinated">
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Vaccination </th>
       <td mat-cell *matCellDef="let pet"> {{pet.isVaccinated}} </td>
     </ng-container>
@@ -88,7 +88,7 @@
       <td mat-cell *matCellDef="let pet"> {{pet.petType}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="owner">
+    <!--<ng-container matColumnDef="owner">
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Owner Id </th>
       <td mat-cell *matCellDef="let pet"> {{pet.owner}} </td>
     </ng-container>-->

@@ -25,7 +25,7 @@ export class UpdateVetComponent implements OnInit {
   ngOnInit(): void {
     this.vet.id = this.route.snapshot.params.id;
     this.vetService.getVetById(this.vet.id).subscribe(value => {
-      this.vet = value
+      this.vet = value;
       this.updateVetGroup.setValue(this.vet);
     });
     console.log(this.vet);

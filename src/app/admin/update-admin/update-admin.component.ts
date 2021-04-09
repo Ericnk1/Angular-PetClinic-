@@ -34,6 +34,7 @@ export class UpdateAdminComponent implements OnInit {
       id: new FormControl(this.admin.id, Validators.required),
       firstName: new FormControl(this.admin.firstName, Validators.required),
       lastName: new FormControl(this.admin.lastName, Validators.required),
+      password: new FormControl(this.admin.password, Validators.required),
       email: new FormControl(this.admin.email, Validators.required)
     });
   }
