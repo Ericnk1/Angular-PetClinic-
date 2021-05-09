@@ -7,7 +7,9 @@ export const environment = {
     production: false,
     development: true,
     environmentName: 'DEV',
-    baseURL: 'https://petclinic-spring-boot.herokuapp.com/'
+    //baseURL: 'https://petclinic-spring-boot.herokuapp.com/'
+    baseURL: ' https://spring-petclinic-b89c38d4edd1.herokuapp.com/'
+
 };
 
 /*
